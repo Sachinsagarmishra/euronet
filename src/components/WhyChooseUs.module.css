@@ -1,0 +1,108 @@
+.whyChooseUs {
+    background: transparent;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.sectionTitle {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    letter-spacing: -.02em;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.card {
+    text-align: center;
+    padding: 30px 25px;
+    border-radius: 16px;
+    background: transparent;
+    position: relative;
+}
+
+.iconWrapper {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.15));
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 5px;
+}
+
+.cardDescription {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #333;
+    max-width: 310px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .whyChooseUs {
+        padding: 60px 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .sectionTitle {
+        font-size: 27px;
+        line-height: 34px;
+        margin-bottom: 10px;
+    }
+
+    .card {
+        padding: 25px 20px;
+    }
+
+    .iconWrapper {
+        width: 75px;
+        height: 75px;
+    }
+}

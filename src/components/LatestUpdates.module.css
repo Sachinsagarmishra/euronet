@@ -1,0 +1,305 @@
+.latestUpdates {
+    padding: 60px 0;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    letter-spacing: -.02em;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0;
+}
+
+/* Tabs */
+.tabsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.tab {
+    background: none;
+    border: none;
+    padding: 10px 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab:hover {
+    color: #2F3091;
+}
+
+.activeTab {
+    color: #2F3091;
+    font-weight: 600;
+}
+
+.tabDivider {
+    width: 2px;
+    height: 24px;
+    background: #999;
+}
+
+/* View More Button */
+.viewMoreBtn {
+    padding: 10px 24px;
+    background: transparent;
+    border: 2px solid #1a1a2e;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.viewMoreBtn:hover {
+    background: #1a1a2e;
+    color: #fff;
+}
+
+/* Articles Grid (Desktop) */
+.articlesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Article Card */
+.articleCard,
+.slideCard {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.articleCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.imagePlaceholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ddd 0%, #eee 50%, #ddd 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 2.5rem;
+}
+
+.articleImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.articleCard:hover .articleImage {
+    transform: scale(1.05);
+}
+
+.articleContent {
+    padding: 16px 16px 15px;
+}
+
+.articleDate {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #2F3091;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.articleTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Mobile Slider Container */
+.mobileSliderContainer {
+    display: none;
+}
+
+.mobileSlider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.mobileSlider::-webkit-scrollbar {
+    display: none;
+}
+
+.slideCard {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Dots Navigation */
+.dotsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.dot:hover {
+    background: #bbb;
+}
+
+.activeDot {
+    background: #2F3091;
+    transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .articlesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .viewMoreBtn {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    .latestUpdates {
+        padding: 60px 0;
+    }
+
+    .header {
+        margin-bottom: 30px;
+    }
+
+    .sectionTitle {
+        font-size: 1.6rem;
+    }
+
+    .tab {
+        font-size: 1rem;
+        padding: 8px 18px;
+    }
+
+    /* Hide grid, show slider on mobile */
+    .articlesGrid {
+        display: none;
+    }
+
+    .mobileSliderContainer {
+        display: block;
+    }
+
+    .articleTitle {
+        font-size: 1rem;
+    }
+
+    .viewMoreBtn {
+        position: absolute;
+        top: 0;
+        right: 20px;
+    }
+
+    .header {
+        position: relative;
+    }
+}
+
+@media (max-width: 480px) {
+    .latestUpdates {
+        padding: 50px 0;
+    }
+
+    .sectionTitle {
+        font-size: 1.4rem;
+    }
+
+    .tab {
+        font-size: 0.9rem;
+        padding: 6px 14px;
+    }
+
+    .tabDivider {
+        height: 20px;
+    }
+
+    .viewMoreBtn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+
+    .articleContent {
+        padding: 16px 5px;
+    }
+
+    .articleDate {
+        font-size: 0.8rem;
+    }
+
+    .articleTitle {
+        font-size: 0.95rem;
+    }
+}

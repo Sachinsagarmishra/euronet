@@ -1,0 +1,277 @@
+/* Power Beyond Section - Full Scroll Effect */
+.section {
+    position: relative;
+    height: 200vh;
+    /* Two full screens */
+    min-height: 1400px;
+}
+
+/* Sticky wrapper to keep content visible during scroll */
+.stickyWrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+}
+
+/* Parallax Background */
+.parallaxBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/Power-Beyond.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+/* Overlay for better text readability */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            rgba(0, 0, 0, 0.5) 100%);
+    z-index: 2;
+}
+
+/* Content Container */
+.content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+}
+
+/* Title Container */
+.titleContainer {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.titleContainer.hidden {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+    pointer-events: none;
+}
+
+.title {
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+    font-family: var(--font-family);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    letter-spacing: -.02em;
+}
+
+/* Stats Container */
+.statsContainer {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1000px;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translate(-50%, -30%);
+    pointer-events: none;
+}
+
+.statsContainer.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+}
+
+/* Stats Rows */
+.statsRow {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+    margin-bottom: 48px;
+}
+
+.statsRow:last-child {
+    margin-bottom: 0;
+}
+
+/* Individual Stat Item */
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: center;
+    min-width: 180px;
+}
+
+.statNumber {
+    font-size: 64px;
+    font-weight: 700;
+    color: #fff;
+    font-family: var(--font-family);
+    line-height: 1.1;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.statLabel {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 8px;
+    text-transform: capitalize;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .section {
+        height: 200vh;
+        min-height: 1200px;
+    }
+
+    .stickyWrapper {
+        min-height: 600px;
+    }
+
+    .title {
+        font-size: 56px;
+    }
+
+    .statsRow {
+        gap: 40px;
+    }
+
+    .statNumber {
+        font-size: 52px;
+    }
+
+    .statLabel {
+        font-size: 14px;
+    }
+
+    .statItem {
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        height: 200vh;
+        min-height: 1000px;
+    }
+
+    .stickyWrapper {
+        min-height: 500px;
+    }
+
+    /* Disable parallax on mobile for better performance */
+    .parallaxBg {
+        background-attachment: scroll;
+    }
+
+    .title {
+        font-size: 42px;
+    }
+
+    .statsContainer {
+        padding: 0 20px;
+    }
+
+    .statsRow {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 40px;
+        margin-bottom: 0;
+    }
+
+    .statsRow:last-child {
+        margin-top: 30px;
+    }
+
+    .statItem {
+        min-width: unset;
+        flex: unset;
+        align-items: center;
+        text-align: center;
+    }
+
+    .statNumber {
+        font-size: 36px;
+    }
+
+    .statLabel {
+        font-size: 12px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        height: 200vh;
+        min-height: 900px;
+    }
+
+    .stickyWrapper {
+        min-height: 450px;
+    }
+
+    .titleContainer {
+        top: 15%;
+    }
+
+    .title {
+        font-size: 27px;
+        margin-top: -45px;
+    }
+
+    .statsContainer {
+        top: 75%;
+        padding: 0 15px;
+    }
+
+    .statsRow {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 30px;
+    }
+
+    .statsRow:last-child {
+        margin-top: 25px;
+    }
+
+    .statItem {
+        align-items: center;
+    }
+
+    .statNumber {
+        font-size: 28px;
+    }
+
+    .statLabel {
+        font-size: 10px;
+        margin-top: 4px;
+    }
+}
+
+/* RTL Support */
+html[dir="rtl"] .titleContainer,
+html[dir="rtl"] .statsContainer {
+    direction: rtl;
+}
