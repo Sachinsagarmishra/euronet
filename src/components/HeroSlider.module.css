@@ -449,13 +449,13 @@
     .secondaryBtn {
         width: 50%;
         flex: 1;
-        padding: 14px 16px;
+        padding: 14px 10px;
         font-size: 13px;
         justify-content: center;
     }
 
     .indicators {
-        bottom: 115px;
+        bottom: 120px;
         gap: 8px;
     }
 
@@ -481,7 +481,7 @@
     }
 
     .featureLabel {
-        font-size: 12px;
+        font-size: 10px;
         line-height: 1.4;
         font-weight: 500;
     }

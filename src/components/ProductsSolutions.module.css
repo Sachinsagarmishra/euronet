@@ -383,7 +383,7 @@
 @media (max-width: 480px) {
     .tabs {
         gap: 0px;
-        padding-left: 140px;
+        padding-left: 170px;
     }
 
     .tab {
