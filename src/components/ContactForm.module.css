@@ -592,7 +592,7 @@
 @media (max-width: 1024px) {
     .container {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 0px;
     }
 
     .infoSide {
@@ -631,7 +631,7 @@
 
     .formCard {
         padding: 28px 20px;
-        border-radius: 20px;
+        border-radius: 15px;
     }
 
     .inputRow {

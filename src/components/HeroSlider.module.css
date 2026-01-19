@@ -440,22 +440,20 @@
     }
 
     .buttons {
-        flex-direction: row;
-        gap: 12px;
-        width: 100%;
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
     }
 
     .primaryBtn,
     .secondaryBtn {
-        width: 50%;
-        flex: 1;
-        padding: 14px 10px;
-        font-size: 13px;
-        justify-content: center;
+        width: auto;
+        padding: 18px 32px;
+        font-size: 15px;
     }
 
     .indicators {
-        bottom: 120px;
+        bottom: 100px;
         gap: 8px;
     }
 
