@@ -3,9 +3,8 @@ import HeroSlider from "@/components/HeroSlider";
 import WhoWeAre from "@/components/WhoWeAre";
 import ProductsSolutions from "@/components/ProductsSolutions";
 import PowerBeyond from "@/components/PowerBeyond";
-import CTASection from "@/components/CTASection";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import GlobalPresence from "@/components/GlobalPresence";
+import ContactForm from "@/components/ContactForm";
 import LatestUpdates from "@/components/LatestUpdates";
 import Footer from "@/components/Footer";
 
@@ -18,9 +17,8 @@ export default function Home() {
         <WhoWeAre />
         <ProductsSolutions />
         <PowerBeyond />
-        <CTASection />
         <WhyChooseUs />
-        <GlobalPresence />
+        <ContactForm />
         <LatestUpdates />
       </main>
       <Footer />
