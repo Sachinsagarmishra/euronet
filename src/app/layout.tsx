@@ -15,6 +15,22 @@ export const metadata: Metadata = {
     title: "Euronet World | Premium Solar Energy Solutions",
     description: "Leading provider of solar energy solutions. Switch to clean power today.",
     type: "website",
+    url: "https://euronetworld.com",
+    siteName: "Euronet World",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Euronet World - Premium Solar Energy Solutions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Euronet World | Premium Solar Energy Solutions",
+    description: "Leading provider of solar energy solutions. Switch to clean power today.",
+    images: ["/og-image.png"],
   },
 };
 
