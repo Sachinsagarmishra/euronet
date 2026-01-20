@@ -153,30 +153,31 @@ const ContactForm = () => {
                         </div>
 
                         <form onSubmit={handleSubmit} className={styles.form}>
-                            {/* Full Name */}
-                            <div className={styles.inputGroup}>
-                                <label className={styles.inputLabel}>
-                                    {language === 'ar' ? 'الاسم الكامل' : 'Full Name'} <span className={styles.required}>*</span>
-                                </label>
-                                <div className={styles.inputWrapper}>
-                                    <svg className={styles.inputIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                        <circle cx="12" cy="7" r="4" />
-                                    </svg>
-                                    <input
-                                        type="text"
-                                        name="fullName"
-                                        value={formData.fullName}
-                                        onChange={handleInputChange}
-                                        placeholder={language === 'ar' ? 'أدخل اسمك الكامل' : 'Enter your full name'}
-                                        required
-                                        className={styles.input}
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Email & Phone Row */}
+                            {/* Name & Email Row */}
                             <div className={styles.inputRow}>
+                                {/* Full Name */}
+                                <div className={styles.inputGroup}>
+                                    <label className={styles.inputLabel}>
+                                        {language === 'ar' ? 'الاسم الكامل' : 'Full Name'} <span className={styles.required}>*</span>
+                                    </label>
+                                    <div className={styles.inputWrapper}>
+                                        <svg className={styles.inputIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                            <circle cx="12" cy="7" r="4" />
+                                        </svg>
+                                        <input
+                                            type="text"
+                                            name="fullName"
+                                            value={formData.fullName}
+                                            onChange={handleInputChange}
+                                            placeholder={language === 'ar' ? 'أدخل اسمك الكامل' : 'Enter your full name'}
+                                            required
+                                            className={styles.input}
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Email */}
                                 <div className={styles.inputGroup}>
                                     <label className={styles.inputLabel}>
                                         {language === 'ar' ? 'البريد الإلكتروني' : 'Email'} <span className={styles.required}>*</span>
@@ -197,52 +198,53 @@ const ContactForm = () => {
                                         />
                                     </div>
                                 </div>
+                            </div>
 
-                                <div className={styles.inputGroup}>
-                                    <label className={styles.inputLabel}>
-                                        {language === 'ar' ? 'رقم الهاتف' : 'Phone'} <span className={styles.required}>*</span>
-                                    </label>
-                                    <div className={styles.phoneWrapper}>
-                                        <div
-                                            className={styles.countrySelector}
-                                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                        >
-                                            <img src={selectedCountryCode.flag} alt={selectedCountryCode.name} className={styles.countryFlagImg} width="24" height="18" />
-                                            <span className={styles.countryCode}>{selectedCountryCode.code}</span>
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                                <polyline points="6 9 12 15 18 9" />
-                                            </svg>
+                            {/* Phone Number - Full Width */}
+                            <div className={styles.inputGroup}>
+                                <label className={styles.inputLabel}>
+                                    {language === 'ar' ? 'رقم الهاتف' : 'Phone'} <span className={styles.required}>*</span>
+                                </label>
+                                <div className={styles.phoneWrapper}>
+                                    <div
+                                        className={styles.countrySelector}
+                                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                    >
+                                        <img src={selectedCountryCode.flag} alt={selectedCountryCode.name} className={styles.countryFlagImg} width="24" height="18" />
+                                        <span className={styles.countryCode}>{selectedCountryCode.code}</span>
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <polyline points="6 9 12 15 18 9" />
+                                        </svg>
 
-                                            {isDropdownOpen && (
-                                                <div className={styles.countryDropdown}>
-                                                    {countries.map((country) => (
-                                                        <div
-                                                            key={country.code}
-                                                            className={styles.countryOption}
-                                                            onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                setSelectedCountryCode(country);
-                                                                setIsDropdownOpen(false);
-                                                            }}
-                                                        >
-                                                            <img src={country.flag} alt={country.name} width="24" height="18" />
-                                                            <span>{country.name}</span>
-                                                            <span className={styles.optionCode}>{country.code}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                        <input
-                                            type="tel"
-                                            name="phone"
-                                            value={formData.phone}
-                                            onChange={handleInputChange}
-                                            placeholder={language === 'ar' ? 'أدخل رقم الهاتف' : 'Enter phone number'}
-                                            required
-                                            className={styles.phoneInput}
-                                        />
+                                        {isDropdownOpen && (
+                                            <div className={styles.countryDropdown}>
+                                                {countries.map((country) => (
+                                                    <div
+                                                        key={country.code}
+                                                        className={styles.countryOption}
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setSelectedCountryCode(country);
+                                                            setIsDropdownOpen(false);
+                                                        }}
+                                                    >
+                                                        <img src={country.flag} alt={country.name} width="24" height="18" />
+                                                        <span>{country.name}</span>
+                                                        <span className={styles.optionCode}>{country.code}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleInputChange}
+                                        placeholder={language === 'ar' ? 'أدخل رقم الهاتف' : 'Enter phone number'}
+                                        required
+                                        className={styles.phoneInput}
+                                    />
                                 </div>
                             </div>
 

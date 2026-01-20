@@ -131,23 +131,45 @@ const Header = () => {
             {/* Search Overlay */}
             <div className={`${styles.searchOverlay} ${isSearchOpen ? styles.open : ''}`}>
                 <div className={styles.searchContainer}>
-                    <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
-                        <svg className={styles.searchIcon} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <circle cx="11" cy="11" r="8" />
-                            <path d="m21 21-4.35-4.35" />
-                        </svg>
-                        <input
-                            ref={searchInputRef}
-                            type="text"
-                            className={styles.searchInput}
-                            placeholder={t('searchPlaceholder')}
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
-                        <button type="submit" className={styles.searchSubmit}>
-                            {t('search')}
-                        </button>
-                    </form>
+                    <div className={styles.searchWrapper}>
+                        <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
+                            <svg className={styles.searchIcon} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.35-4.35" />
+                            </svg>
+                            <input
+                                ref={searchInputRef}
+                                type="text"
+                                className={styles.searchInput}
+                                placeholder={t('searchPlaceholder')}
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                            <button type="submit" className={styles.searchSubmit}>
+                                {t('search')}
+                            </button>
+                        </form>
+
+                        <div className={styles.searchRecommendations}>
+                            <h4 className={styles.recommendationTitle}>{language === 'ar' ? 'اقتراحات الحلول' : 'Popular Solutions'}</h4>
+                            <ul className={styles.recommendationList}>
+                                {[
+                                    { label: 'Residential Solution', icon: 'fa-house-chimney' },
+                                    { label: 'C&I Solution', icon: 'fa-building' },
+                                    { label: 'Agriculture Solution', icon: 'fa-seedling' },
+                                    { label: 'Solar Light', icon: 'fa-sun' }
+                                ].map((item, idx) => (
+                                    <li key={idx} className={styles.recommendationItem}>
+                                        <Link href={`/solutions/${item.label.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} onClick={() => setIsSearchOpen(false)}>
+                                            <i className={`fa-solid ${item.icon}`}></i>
+                                            <span>{item.label}</span>
+                                            <i className="fa-solid fa-arrow-right-long"></i>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
                     <button
                         className={styles.searchClose}
                         onClick={() => {

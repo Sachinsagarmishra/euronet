@@ -214,6 +214,11 @@
     height: auto;
     object-fit: contain;
     border-radius: 0px;
+    transition: filter var(--transition-normal);
+}
+
+.productCard:hover .productImage {
+    filter: grayscale(0.6) opacity(0.8);
 }
 
 .productName {

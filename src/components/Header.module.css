@@ -153,20 +153,8 @@
     position: relative;
 }
 
-.navLink::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: 16px;
-    right: 16px;
-    height: 2px;
-    background: var(--gradient-primary);
-    transform: scaleX(0);
-    transition: transform var(--transition-fast);
-}
-
-.navLink:hover::after {
-    transform: scaleX(1);
+.navLink:hover {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .dropdownIcon {
@@ -457,14 +445,93 @@
     position: relative;
 }
 
+.searchWrapper {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 8px;
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .searchForm {
     display: flex;
     align-items: center;
     gap: 16px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+}
+
+/* Recommendations */
+.searchRecommendations {
+    padding: 8px 16px 16px;
+}
+
+.recommendationTitle {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    opacity: 0.8;
+}
+
+.recommendationList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.recommendationItem a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
     border-radius: 12px;
-    padding: 16px 20px;
+    color: var(--color-white);
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.recommendationItem a i:first-child {
+    width: 24px;
+    color: var(--color-text-muted);
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.recommendationItem a span {
+    flex: 1;
+}
+
+.recommendationItem a i:last-child {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    color: var(--color-white);
+}
+
+.recommendationItem a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 20px;
+}
+
+.recommendationItem a:hover i:first-child {
+    color: var(--color-white);
+    transform: scale(1.1);
+}
+
+.recommendationItem a:hover i:last-child {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .searchIcon {
