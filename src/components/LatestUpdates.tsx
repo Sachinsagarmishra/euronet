@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './LatestUpdates.module.css';
+import AnimateOnScroll from './AnimateOnScroll';
 
 interface Article {
     id: string;
@@ -132,27 +133,29 @@ const LatestUpdates: React.FC = () => {
         <section className={styles.latestUpdates}>
             <div className={styles.container}>
                 {/* Header */}
-                <div className={styles.header}>
-                    <h2 className={styles.sectionTitle}>Latest Updates</h2>
+                <AnimateOnScroll animation="fadeUp" delay={0}>
+                    <div className={styles.header}>
+                        <h2 className={styles.sectionTitle}>Latest Updates</h2>
 
-                    <div className={styles.tabsWrapper}>
-                        <button
-                            className={`${styles.tab} ${activeTab === 'news' ? styles.activeTab : ''}`}
-                            onClick={() => setActiveTab('news')}
-                        >
-                            News
-                        </button>
-                        <span className={styles.tabDivider}></span>
-                        <button
-                            className={`${styles.tab} ${activeTab === 'blog' ? styles.activeTab : ''}`}
-                            onClick={() => setActiveTab('blog')}
-                        >
-                            Blog
-                        </button>
+                        <div className={styles.tabsWrapper}>
+                            <button
+                                className={`${styles.tab} ${activeTab === 'news' ? styles.activeTab : ''}`}
+                                onClick={() => setActiveTab('news')}
+                            >
+                                News
+                            </button>
+                            <span className={styles.tabDivider}></span>
+                            <button
+                                className={`${styles.tab} ${activeTab === 'blog' ? styles.activeTab : ''}`}
+                                onClick={() => setActiveTab('blog')}
+                            >
+                                Blog
+                            </button>
+                        </div>
+
+                        <button className={styles.viewMoreBtn}>View More</button>
                     </div>
-
-                    <button className={styles.viewMoreBtn}>View More</button>
-                </div>
+                </AnimateOnScroll>
 
                 {/* Desktop Grid */}
                 <div className={styles.articlesGrid}>

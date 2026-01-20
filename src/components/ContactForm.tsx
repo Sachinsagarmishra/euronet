@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from './ContactForm.module.css';
 import { useLanguage } from '@/context/LanguageContext';
+import AnimateOnScroll from './AnimateOnScroll';
 
 const countries = [
     { code: '+971', name: 'UAE', flag: 'https://flagcdn.com/w40/ae.png' },
@@ -82,18 +83,24 @@ const ContactForm = () => {
                 {/* Left Side - Info */}
                 <div className={styles.infoSide}>
                     <div className={styles.infoContent}>
-                        <span className={styles.label}>
-                            <span className={styles.labelDot}></span>
-                            {language === 'ar' ? 'تواصل معنا' : 'GET IN TOUCH'}
-                        </span>
-                        <h2 className={styles.title}>
-                            {language === 'ar' ? 'اعمل مع يورونت' : 'Work With Euronet'}
-                        </h2>
-                        <p className={styles.subtitle}>
-                            {language === 'ar'
-                                ? 'مكاتب في دبي - الإمارات، الصين، السعودية، نيجيريا، جنوب أفريقيا'
-                                : 'Offices In Dubai - U.A.E, China, Saudi Arabia, Nigeria, South Africa'}
-                        </p>
+                        <AnimateOnScroll animation="fadeUp" delay={0}>
+                            <span className={styles.label}>
+                                <span className={styles.labelDot}></span>
+                                {language === 'ar' ? 'تواصل معنا' : 'GET IN TOUCH'}
+                            </span>
+                        </AnimateOnScroll>
+                        <AnimateOnScroll animation="fadeUp" delay={0.1}>
+                            <h2 className={styles.title}>
+                                {language === 'ar' ? 'اعمل مع يورونت' : 'Work With Euronet'}
+                            </h2>
+                        </AnimateOnScroll>
+                        <AnimateOnScroll animation="fadeUp" delay={0.2}>
+                            <p className={styles.subtitle}>
+                                {language === 'ar'
+                                    ? 'مكاتب في دبي - الإمارات، الصين، السعودية، نيجيريا، جنوب أفريقيا'
+                                    : 'Offices In Dubai - U.A.E, China, Saudi Arabia, Nigeria, South Africa'}
+                            </p>
+                        </AnimateOnScroll>
 
                         <div className={styles.contactInfo}>
                             <a href="mailto:Contact@smarteuronet.com" className={styles.emailLink}>

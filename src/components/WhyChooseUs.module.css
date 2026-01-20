@@ -12,12 +12,13 @@
 
 .sectionTitle {
     font-size: 42px;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: -.02em;
     color: #1a1a2e;
     margin: 0;
-    letter-spacing: -0.5px;
 }
 
+/* Desktop Columns */
 .columnsWrapper {
     display: flex;
     width: 100%;
@@ -172,6 +173,11 @@
     transform: translateX(4px);
 }
 
+/* Mobile Slider - Hidden on desktop */
+.mobileSliderContainer {
+    display: none;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
     .sectionTitle {
@@ -232,6 +238,7 @@
     }
 }
 
+/* Mobile - Show slider, hide columns */
 @media (max-width: 768px) {
     .sectionHeader {
         padding: 40px 16px 24px;
@@ -241,52 +248,106 @@
         font-size: 28px;
     }
 
+    /* Hide desktop columns on mobile */
     .columnsWrapper {
-        flex-direction: column;
+        display: none;
     }
 
-    .column {
-        flex: none;
-        min-height: 160px;
+    /* Show mobile slider */
+    .mobileSliderContainer {
+        display: block;
+        position: relative;
     }
 
-    .column.active {
-        min-height: 320px;
+    .mobileSlider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
-    .defaultContent {
-        padding: 20px 16px;
+    .mobileSlider::-webkit-scrollbar {
+        display: none;
     }
 
-    .columnTitle {
+    .mobileSlide {
+        flex: 0 0 100%;
+        min-height: 550px;
+        scroll-snap-align: start;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .mobileSlideContent {
+        width: 100%;
+        padding: 40px 24px;
+        background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+    }
+
+    .mobileSlideTitle {
+        font-size: 28px;
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 16px;
+        line-height: 1.2;
+    }
+
+    .mobileSlideDescription {
         font-size: 16px;
-        margin-bottom: 8px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0 0 24px;
     }
 
-    .columnDescription {
-        font-size: 11px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+    .mobileSlideBtn {
+        display: inline-block;
+        padding: 8px 32px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: inherit;
+        color: #fff;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        text-align: center;
     }
 
-    .expandedInner {
-        padding: 28px 20px;
+    .mobileSlideBtn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #fff;
     }
 
-    .expandedTitle {
-        font-size: 22px;
-        margin-bottom: 14px;
+    /* Dot Indicators - Inside image */
+    .dotsContainer {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 30px;
     }
 
-    .expandedDescription {
-        font-size: 13px;
-        margin-bottom: 18px;
+    .dot {
+        width: 24px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.4);
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
     }
 
-    .divider {
-        margin-bottom: 14px;
+    .dot.activeDot {
+        background: #fff;
+        width: 32px;
     }
 }

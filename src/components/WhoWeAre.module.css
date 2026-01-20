@@ -139,18 +139,21 @@
 }
 
 .statCard {
-    background: #fff;
-    border-radius: 12px;
-    padding: 16px 20px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    background: rgb(255 255 255 / 59%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 18px 22px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     pointer-events: auto;
-    max-width: 220px;
+    max-width: 225px;
 }
 
 .statCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 /* Position each stat card */
@@ -167,15 +170,15 @@
 }
 
 .statCard1:hover {
-    transform: translateX(40px) translateY(-4px);
+    transform: translateX(-70px);
 }
 
 .statCard2:hover {
-    transform: translateX(80px) translateY(-4px);
+    transform: translateX(-30px);
 }
 
 .statCard3:hover {
-    transform: translateX(20px) translateY(-24px);
+    transform: translateX(-590px) translateY(-20px);
 }
 
 .statHeader {

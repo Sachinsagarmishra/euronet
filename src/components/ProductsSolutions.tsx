@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './ProductsSolutions.module.css';
 import { useLanguage } from '@/context/LanguageContext';
+import AnimateOnScroll from './AnimateOnScroll';
 
 interface Product {
     id: number;
@@ -133,22 +134,26 @@ const ProductsSolutions = () => {
         <section className={styles.section}>
             <div className={styles.container}>
                 {/* Section Title */}
-                <h2 className={styles.sectionTitle}>
-                    {language === 'ar' ? 'المنتجات والحلول' : 'Products & Solutions'}
-                </h2>
+                <AnimateOnScroll animation="fadeUp" delay={0}>
+                    <h2 className={styles.sectionTitle}>
+                        {language === 'ar' ? 'المنتجات والحلول' : 'Products & Solutions'}
+                    </h2>
+                </AnimateOnScroll>
 
                 {/* Tabs */}
-                <div className={styles.tabs}>
-                    {tabsData.map(tab => (
-                        <button
-                            key={tab.id}
-                            className={`${styles.tab} ${activeTab === tab.id ? styles.active : ''}`}
-                            onClick={() => handleTabChange(tab.id)}
-                        >
-                            {language === 'ar' ? tab.labelAr : tab.label}
-                        </button>
-                    ))}
-                </div>
+                <AnimateOnScroll animation="fadeUp" delay={0.1}>
+                    <div className={styles.tabs}>
+                        {tabsData.map(tab => (
+                            <button
+                                key={tab.id}
+                                className={`${styles.tab} ${activeTab === tab.id ? styles.active : ''}`}
+                                onClick={() => handleTabChange(tab.id)}
+                            >
+                                {language === 'ar' ? tab.labelAr : tab.label}
+                            </button>
+                        ))}
+                    </div>
+                </AnimateOnScroll>
 
                 {/* Banner */}
                 <div className={styles.banner}>
