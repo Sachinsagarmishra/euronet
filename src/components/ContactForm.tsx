@@ -5,14 +5,14 @@ import styles from './ContactForm.module.css';
 import { useLanguage } from '@/context/LanguageContext';
 
 const countries = [
-    { code: '+971', name: 'UAE', flag: '🇦🇪' },
-    { code: '+86', name: 'China', flag: '🇨🇳' },
-    { code: '+966', name: 'Saudi Arabia', flag: '🇸🇦' },
-    { code: '+234', name: 'Nigeria', flag: '🇳🇬' },
-    { code: '+27', name: 'South Africa', flag: '🇿🇦' },
-    { code: '+91', name: 'India', flag: '🇮🇳' },
-    { code: '+1', name: 'USA', flag: '🇺🇸' },
-    { code: '+44', name: 'UK', flag: '🇬🇧' },
+    { code: '+971', name: 'UAE', flag: 'https://flagcdn.com/w40/ae.png' },
+    { code: '+86', name: 'China', flag: 'https://flagcdn.com/w40/cn.png' },
+    { code: '+966', name: 'Saudi Arabia', flag: 'https://flagcdn.com/w40/sa.png' },
+    { code: '+234', name: 'Nigeria', flag: 'https://flagcdn.com/w40/ng.png' },
+    { code: '+27', name: 'South Africa', flag: 'https://flagcdn.com/w40/za.png' },
+    { code: '+91', name: 'India', flag: 'https://flagcdn.com/w40/in.png' },
+    { code: '+1', name: 'USA', flag: 'https://flagcdn.com/w40/us.png' },
+    { code: '+44', name: 'UK', flag: 'https://flagcdn.com/w40/gb.png' },
 ];
 
 const countryList = [
@@ -111,11 +111,21 @@ const ContactForm = () => {
                                 {language === 'ar' ? 'مكاتبنا العالمية' : 'Our Global Offices'}
                             </h4>
                             <div className={styles.officeFlags}>
-                                <div className={styles.officeFlag} title="UAE - Dubai">🇦🇪</div>
-                                <div className={styles.officeFlag} title="China">🇨🇳</div>
-                                <div className={styles.officeFlag} title="Saudi Arabia">🇸🇦</div>
-                                <div className={styles.officeFlag} title="Nigeria">🇳🇬</div>
-                                <div className={styles.officeFlag} title="South Africa">🇿🇦</div>
+                                <div className={styles.officeFlag} title="UAE - Dubai">
+                                    <img src="https://flagcdn.com/w40/ae.png" alt="UAE" width="32" height="24" />
+                                </div>
+                                <div className={styles.officeFlag} title="China">
+                                    <img src="https://flagcdn.com/w40/cn.png" alt="China" width="32" height="24" />
+                                </div>
+                                <div className={styles.officeFlag} title="Saudi Arabia">
+                                    <img src="https://flagcdn.com/w40/sa.png" alt="Saudi Arabia" width="32" height="24" />
+                                </div>
+                                <div className={styles.officeFlag} title="Nigeria">
+                                    <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria" width="32" height="24" />
+                                </div>
+                                <div className={styles.officeFlag} title="South Africa">
+                                    <img src="https://flagcdn.com/w40/za.png" alt="South Africa" width="32" height="24" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -190,7 +200,7 @@ const ContactForm = () => {
                                             className={styles.countrySelector}
                                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                                         >
-                                            <span className={styles.countryFlag}>{selectedCountryCode.flag}</span>
+                                            <img src={selectedCountryCode.flag} alt={selectedCountryCode.name} className={styles.countryFlagImg} width="24" height="18" />
                                             <span className={styles.countryCode}>{selectedCountryCode.code}</span>
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                                 <polyline points="6 9 12 15 18 9" />
@@ -208,7 +218,7 @@ const ContactForm = () => {
                                                                 setIsDropdownOpen(false);
                                                             }}
                                                         >
-                                                            <span>{country.flag}</span>
+                                                            <img src={country.flag} alt={country.name} width="24" height="18" />
                                                             <span>{country.name}</span>
                                                             <span className={styles.optionCode}>{country.code}</span>
                                                         </div>

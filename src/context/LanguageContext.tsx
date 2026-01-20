@@ -42,8 +42,7 @@ const translations: Translations = {
     slide3Title: { en: 'Power Your\nFuture', ar: 'أنر\nمستقبلك' },
     slide3Description: { en: 'B2B supplier with stock in Dubai, Lagos, Johannesburg, Riyadh, Sar es Salaam. Container-ready.', ar: 'مورد B2B مع مخزون في دبي، لاغوس، جوهانسبرغ، الرياض، دار السلام. جاهز للحاويات.' },
 
-    getQuote: { en: 'Get a Quote', ar: 'احصل على عرض سعر' },
-    calculateRoi: { en: 'Calculate Your ROI', ar: 'احسب العائد على الاستثمار' },
+    learnMore: { en: 'Learn More', ar: 'اعرف المزيد' },
 
     // Features
     lowerElectricityBills: { en: 'Lower Electricity Bills', ar: 'فواتير كهرباء أقل' },

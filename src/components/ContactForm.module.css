@@ -238,6 +238,13 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+.officeFlag img {
+    width: 32px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
 /* Solar Decoration */
 .solarDecor {
     position: absolute;
@@ -420,6 +427,13 @@
     font-size: 18px;
 }
 
+.countryFlagImg {
+    width: 24px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
 .countryCode {
     font-size: 13px;
     font-weight: 600;
@@ -454,6 +468,13 @@
 
 .countryOption:hover {
     background: #f3f4f6;
+}
+
+.countryOption img {
+    width: 24px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 3px;
 }
 
 .optionCode {

@@ -19,8 +19,7 @@ const HeroSlider = () => {
             subtitle: t('slide1Subtitle'),
             title: t('slide1Title'),
             description: t('slide1Description'),
-            primaryBtn: t('getQuote'),
-            secondaryBtn: t('calculateRoi'),
+            primaryBtn: t('learnMore'),
         },
         {
             id: 2,
@@ -29,8 +28,7 @@ const HeroSlider = () => {
             subtitle: t('slide2Subtitle'),
             title: t('slide2Title'),
             description: t('slide2Description'),
-            primaryBtn: t('getQuote'),
-            secondaryBtn: t('calculateRoi'),
+            primaryBtn: t('learnMore'),
         },
         {
             id: 3,
@@ -39,8 +37,7 @@ const HeroSlider = () => {
             subtitle: t('slide3Subtitle'),
             title: t('slide3Title'),
             description: t('slide3Description'),
-            primaryBtn: t('getQuote'),
-            secondaryBtn: t('calculateRoi'),
+            primaryBtn: t('learnMore'),
         },
     ];
 
@@ -131,9 +128,6 @@ const HeroSlider = () => {
                                     <div className={`${styles.buttons} ${index === currentSlide ? styles.animate : ''}`}>
                                         <button className={styles.primaryBtn}>
                                             {slide.primaryBtn}
-                                        </button>
-                                        <button className={styles.secondaryBtn}>
-                                            {slide.secondaryBtn}
                                         </button>
                                     </div>
                                 </div>
