@@ -1,0 +1,164 @@
+.section {
+    background-color: #ffffff;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 180px 1px 1fr 320px;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Large VSG Text */
+.vsgText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vsgText span {
+    font-size: 90px;
+    font-weight: 700;
+    color: #e0e0e0;
+    letter-spacing: -4px;
+    line-height: 1;
+}
+
+/* Divider Line */
+.divider {
+    width: 1px;
+    height: 120px;
+    background-color: #ddd;
+}
+
+/* Content */
+.content {
+    max-width: 600px;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2f3091;
+    margin-bottom: 16px;
+}
+
+.description {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Product with Animated Circle */
+.productWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 280px;
+}
+
+.animatedCircle {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #2f3091 0%, #2f3091 100%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.03);
+        opacity: 0.95;
+    }
+}
+
+.productImage {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .vsgText,
+    .divider {
+        display: none;
+    }
+
+    .content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .content {
+        order: 1;
+    }
+
+    .productWrapper {
+        order: 2;
+        height: 250px;
+    }
+
+    .animatedCircle {
+        width: 160px;
+        height: 160px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .animatedCircle {
+        width: 140px;
+        height: 140px;
+    }
+
+    .productWrapper {
+        height: 220px;
+    }
+}

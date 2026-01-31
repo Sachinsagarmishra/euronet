@@ -41,11 +41,11 @@ const industries = [
         buttons: ['Surveillance', 'Access Control'],
     },
     {
-        id: 'industry',
-        title: 'Industry',
-        description: 'Industrial solutions delivering high-capacity, reliable power to support continuous and efficient operations.',
+        id: 'solar-solutions',
+        title: 'Solar Solutions',
+        description: 'Advanced solar systems delivering clean, sustainable power and long-term energy savings.',
         image: '/othersolutions/INDUSTRY.png',
-        buttons: ['Manufacturing', 'Automation'],
+        buttons: ['Photovoltaics', 'Energy Storage'],
     },
 ];
 

@@ -5,32 +5,61 @@ import styles from './ContactForm.module.css';
 import { useLanguage } from '@/context/LanguageContext';
 import AnimateOnScroll from './AnimateOnScroll';
 
-const countries = [
-    { code: '+971', name: 'UAE', flag: 'https://flagcdn.com/w40/ae.png' },
-    { code: '+86', name: 'China', flag: 'https://flagcdn.com/w40/cn.png' },
-    { code: '+966', name: 'Saudi Arabia', flag: 'https://flagcdn.com/w40/sa.png' },
-    { code: '+234', name: 'Nigeria', flag: 'https://flagcdn.com/w40/ng.png' },
-    { code: '+27', name: 'South Africa', flag: 'https://flagcdn.com/w40/za.png' },
-    { code: '+91', name: 'India', flag: 'https://flagcdn.com/w40/in.png' },
-    { code: '+1', name: 'USA', flag: 'https://flagcdn.com/w40/us.png' },
-    { code: '+44', name: 'UK', flag: 'https://flagcdn.com/w40/gb.png' },
-];
-
-const countryList = [
-    'United Arab Emirates',
-    'China',
-    'Saudi Arabia',
-    'Nigeria',
-    'South Africa',
-    'India',
-    'United States',
-    'United Kingdom',
-    'Germany',
-    'France',
-    'Kenya',
-    'Tanzania',
-    'Egypt',
-    'Other',
+const countriesWithCodes = [
+    { name: 'United Arab Emirates', code: '+971' },
+    { name: 'China', code: '+86' },
+    { name: 'Saudi Arabia', code: '+966' },
+    { name: 'Nigeria', code: '+234' },
+    { name: 'South Africa', code: '+27' },
+    { name: 'India', code: '+91' },
+    { name: 'United States', code: '+1' },
+    { name: 'United Kingdom', code: '+44' },
+    { name: 'Germany', code: '+49' },
+    { name: 'France', code: '+33' },
+    { name: 'Kenya', code: '+254' },
+    { name: 'Tanzania', code: '+255' },
+    { name: 'Egypt', code: '+20' },
+    { name: 'Australia', code: '+61' },
+    { name: 'Canada', code: '+1' },
+    { name: 'Brazil', code: '+55' },
+    { name: 'Japan', code: '+81' },
+    { name: 'South Korea', code: '+82' },
+    { name: 'Singapore', code: '+65' },
+    { name: 'Malaysia', code: '+60' },
+    { name: 'Indonesia', code: '+62' },
+    { name: 'Pakistan', code: '+92' },
+    { name: 'Bangladesh', code: '+880' },
+    { name: 'Russia', code: '+7' },
+    { name: 'Italy', code: '+39' },
+    { name: 'Spain', code: '+34' },
+    { name: 'Netherlands', code: '+31' },
+    { name: 'Turkey', code: '+90' },
+    { name: 'Thailand', code: '+66' },
+    { name: 'Vietnam', code: '+84' },
+    { name: 'Philippines', code: '+63' },
+    { name: 'Mexico', code: '+52' },
+    { name: 'Argentina', code: '+54' },
+    { name: 'Colombia', code: '+57' },
+    { name: 'Chile', code: '+56' },
+    { name: 'Peru', code: '+51' },
+    { name: 'Morocco', code: '+212' },
+    { name: 'Algeria', code: '+213' },
+    { name: 'Tunisia', code: '+216' },
+    { name: 'Ghana', code: '+233' },
+    { name: 'Uganda', code: '+256' },
+    { name: 'Ethiopia', code: '+251' },
+    { name: 'Kuwait', code: '+965' },
+    { name: 'Qatar', code: '+974' },
+    { name: 'Bahrain', code: '+973' },
+    { name: 'Oman', code: '+968' },
+    { name: 'Jordan', code: '+962' },
+    { name: 'Lebanon', code: '+961' },
+    { name: 'Iraq', code: '+964' },
+    { name: 'Iran', code: '+98' },
+    { name: 'Afghanistan', code: '+93' },
+    { name: 'Sri Lanka', code: '+94' },
+    { name: 'Nepal', code: '+977' },
+    { name: 'Other', code: '+' },
 ];
 
 const ContactForm = () => {
@@ -42,14 +71,24 @@ const ContactForm = () => {
         country: '',
         message: '',
     });
-    const [selectedCountryCode, setSelectedCountryCode] = useState(countries[0]);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [phoneCode, setPhoneCode] = useState('+971');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedCountry = e.target.value;
+        setFormData(prev => ({ ...prev, country: selectedCountry }));
+
+        // Find and set the phone code for selected country
+        const countryData = countriesWithCodes.find(c => c.name === selectedCountry);
+        if (countryData) {
+            setPhoneCode(countryData.code);
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -200,77 +239,53 @@ const ContactForm = () => {
                                 </div>
                             </div>
 
-                            {/* Phone Number - Full Width */}
-                            <div className={styles.inputGroup}>
-                                <label className={styles.inputLabel}>
-                                    {language === 'ar' ? 'رقم الهاتف' : 'Phone'} <span className={styles.required}>*</span>
-                                </label>
-                                <div className={styles.phoneWrapper}>
-                                    <div
-                                        className={styles.countrySelector}
-                                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                    >
-                                        <img src={selectedCountryCode.flag} alt={selectedCountryCode.name} className={styles.countryFlagImg} width="24" height="18" />
-                                        <span className={styles.countryCode}>{selectedCountryCode.code}</span>
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <polyline points="6 9 12 15 18 9" />
+                            {/* Country & Phone Row */}
+                            <div className={styles.inputRow}>
+                                {/* Country */}
+                                <div className={styles.inputGroup}>
+                                    <label className={styles.inputLabel}>
+                                        {language === 'ar' ? 'البلد' : 'Country'} <span className={styles.required}>*</span>
+                                    </label>
+                                    <div className={styles.inputWrapper}>
+                                        <svg className={styles.inputIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="2" y1="12" x2="22" y2="12" />
+                                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                                         </svg>
-
-                                        {isDropdownOpen && (
-                                            <div className={styles.countryDropdown}>
-                                                {countries.map((country) => (
-                                                    <div
-                                                        key={country.code}
-                                                        className={styles.countryOption}
-                                                        onClick={(e) => {
-                                                            e.stopPropagation();
-                                                            setSelectedCountryCode(country);
-                                                            setIsDropdownOpen(false);
-                                                        }}
-                                                    >
-                                                        <img src={country.flag} alt={country.name} width="24" height="18" />
-                                                        <span>{country.name}</span>
-                                                        <span className={styles.optionCode}>{country.code}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
+                                        <select
+                                            name="country"
+                                            value={formData.country}
+                                            onChange={handleCountryChange}
+                                            required
+                                            className={styles.select}
+                                        >
+                                            <option value="">{language === 'ar' ? 'اختر بلدك' : 'Select your country'}</option>
+                                            {countriesWithCodes.map((country) => (
+                                                <option key={country.name} value={country.name}>{country.name}</option>
+                                            ))}
+                                        </select>
                                     </div>
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        value={formData.phone}
-                                        onChange={handleInputChange}
-                                        placeholder={language === 'ar' ? 'أدخل رقم الهاتف' : 'Enter phone number'}
-                                        required
-                                        className={styles.phoneInput}
-                                    />
                                 </div>
-                            </div>
 
-                            {/* Country */}
-                            <div className={styles.inputGroup}>
-                                <label className={styles.inputLabel}>
-                                    {language === 'ar' ? 'البلد' : 'Country'} <span className={styles.required}>*</span>
-                                </label>
-                                <div className={styles.inputWrapper}>
-                                    <svg className={styles.inputIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <line x1="2" y1="12" x2="22" y2="12" />
-                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                                    </svg>
-                                    <select
-                                        name="country"
-                                        value={formData.country}
-                                        onChange={handleInputChange}
-                                        required
-                                        className={styles.select}
-                                    >
-                                        <option value="">{language === 'ar' ? 'اختر بلدك' : 'Select your country'}</option>
-                                        {countryList.map((country) => (
-                                            <option key={country} value={country}>{country}</option>
-                                        ))}
-                                    </select>
+                                {/* Phone Number */}
+                                <div className={styles.inputGroup}>
+                                    <label className={styles.inputLabel}>
+                                        {language === 'ar' ? 'رقم الهاتف' : 'Phone'} <span className={styles.required}>*</span>
+                                    </label>
+                                    <div className={styles.phoneWrapper}>
+                                        <div className={styles.phoneCodeDisplay}>
+                                            <span className={styles.countryCode}>{phoneCode}</span>
+                                        </div>
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleInputChange}
+                                            placeholder={language === 'ar' ? 'أدخل رقم الهاتف' : 'Enter phone number'}
+                                            required
+                                            className={styles.phoneInput}
+                                        />
+                                    </div>
                                 </div>
                             </div>
 

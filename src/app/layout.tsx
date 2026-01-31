@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-import CookieConsent from "@/components/CookieConsent";
+
 
 export const metadata: Metadata = {
   title: "Euronet World | Premium Solar Energy Solutions",
@@ -51,7 +51,7 @@ export default function RootLayout({
       <body>
         <LanguageProvider>
           {children}
-          <CookieConsent />
+
         </LanguageProvider>
       </body>
     </html>

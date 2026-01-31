@@ -1,8 +1,8 @@
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh;
-    min-height: 700px;
+    height: 85vh;
+    min-height: 800px;
     overflow: hidden;
 }
 
@@ -80,8 +80,8 @@
     align-items: center;
     justify-content: flex-start;
     height: 100%;
-    padding-top: 190px;
-    padding-bottom: 80px;
+    padding-top: 220px;
+    padding-bottom: 60px;
 }
 
 .textContent {
@@ -217,7 +217,7 @@
 /* Slide Indicators */
 .indicators {
     position: absolute;
-    bottom: 95px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -265,47 +265,7 @@
     }
 }
 
-/* Features Bar */
-.featuresBar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 10;
-}
 
-.features {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-}
-
-.feature {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 24px 16px;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all var(--transition-normal);
-}
-
-.feature:last-child {
-    border-right: none;
-}
-
-.feature:hover {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.featureLabel {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-text);
-}
 
 /* Navigation Arrows */
 .navArrow {
@@ -374,17 +334,7 @@
         bottom: 160px;
     }
 
-    .features {
-        grid-template-columns: repeat(2, 1fr);
-    }
 
-    .feature {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .feature:nth-child(2) {
-        border-right: none;
-    }
 
     .navArrow {
         width: 48px;
@@ -462,27 +412,7 @@
         height: 3px;
     }
 
-    .featuresBar {
-        padding: 0;
-    }
 
-    .features {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0;
-    }
-
-    .feature {
-        padding: 15px 0px;
-        text-align: center;
-        border-right: none;
-        border-bottom: none;
-    }
-
-    .featureLabel {
-        font-size: 10px;
-        line-height: 1.4;
-        font-weight: 500;
-    }
 
     .navArrow {
         width: 40px;

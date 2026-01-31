@@ -41,12 +41,7 @@ const HeroSlider = () => {
         },
     ];
 
-    const features = [
-        { label: t('lowerElectricityBills') },
-        { label: t('cleanRenewableEnergy') },
-        { label: t('energyIndependence') },
-        { label: t('lowMaintenance') },
-    ];
+
 
     const goToSlide = useCallback((index: number) => {
         if (isAnimating || index === currentSlide) return;
@@ -151,18 +146,7 @@ const HeroSlider = () => {
                 ))}
             </div>
 
-            {/* Features Bar */}
-            <div className={styles.featuresBar}>
-                <div className={styles.container}>
-                    <div className={styles.features}>
-                        {features.map((feature, index) => (
-                            <div key={index} className={styles.feature}>
-                                <span className={styles.featureLabel}>{feature.label}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+
 
             {/* Navigation Arrows */}
             <button
