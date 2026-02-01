@@ -136,7 +136,7 @@ const ProductsSolutions = () => {
                 {/* Section Title */}
                 <AnimateOnScroll animation="fadeUp" delay={0}>
                     <h2 className={styles.sectionTitle}>
-                        {language === 'ar' ? 'المنتجات والحلول' : 'Products & Solutions'}
+                        {language === 'ar' ? 'حلولنا' : 'Our Solutions'}
                     </h2>
                 </AnimateOnScroll>
 
