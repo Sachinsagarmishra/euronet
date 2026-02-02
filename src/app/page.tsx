@@ -18,7 +18,7 @@ export default function Home() {
         <HeroSlider />
         <WhoWeAre />
         <WhyChooseUs />
-        <ProductsSolutions />
+        {/* <ProductsSolutions /> */}
         <PowerBeyond />
         <BusinessBenefits />
         <ContactForm />
