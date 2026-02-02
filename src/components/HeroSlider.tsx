@@ -23,12 +23,14 @@ const HeroSlider = () => {
         },
         {
             id: 2,
-            media: '/slideer-bg/slide-2.png',
-            isVideo: false,
-            subtitle: t('slide2Subtitle'),
-            title: t('slide2Title'),
-            description: t('slide2Description'),
-            primaryBtn: t('learnMore'),
+            media: '/slideer-bg/homepage-hero.mp4',
+            isVideo: true,
+            subtitle: '7 - 9 April 2026',
+            title: "Meet Us at Middle East Energy 2026",
+            description: "Join Euronet at the Middle East's definitive energy marketplace. Visit our booth at the Dubai World Trade Centre to explore our latest innovations.",
+            primaryBtn: 'Register for Visitor Badge',
+            secondaryBtn: 'Purchase VIP Experience',
+            isEvent: true,
         },
         {
             id: 3,
@@ -124,6 +126,11 @@ const HeroSlider = () => {
                                         <button className={styles.primaryBtn}>
                                             {slide.primaryBtn}
                                         </button>
+                                        {slide.secondaryBtn && (
+                                            <button className={styles.secondaryBtn}>
+                                                {slide.secondaryBtn}
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             </div>
