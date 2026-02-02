@@ -137,7 +137,9 @@ const ContactForm = () => {
             {/* Background Image with Minimal Parallax */}
             <div
                 className={styles.bgImage}
-                style={{ transform: `translateY(${parallaxOffset * -0.06}px)` }}
+                style={{
+                    transform: `translate3d(0, ${(parallaxOffset - 0.5) * 60}px, 0)`
+                }}
             ></div>
 
             {/* Animated Background Elements */}
