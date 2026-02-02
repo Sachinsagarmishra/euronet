@@ -27,7 +27,7 @@ const industries = [
         title: 'IoT Devices',
         description: 'IoT device solutions enabling smart connectivity, real-time monitoring, and efficient energy management.',
         image: '/othersolutions/IOT%20DEVICES.png',
-        showcaseImage: '',
+        showcaseImage: '/othersolutions/Iot.webp',
         buttons: ['Smart Sensors', 'Connected Devices'],
     },
     {
@@ -43,7 +43,7 @@ const industries = [
         title: 'Security',
         description: 'Security solutions delivering reliable power, surveillance support, and uninterrupted protection.',
         image: '/othersolutions/SECURITY.png',
-        showcaseImage: '',
+        showcaseImage: '/othersolutions/security.webp',
         buttons: ['Surveillance', 'Access Control'],
     },
     {
@@ -51,7 +51,7 @@ const industries = [
         title: 'Solar Solutions',
         description: 'Advanced solar systems delivering clean, sustainable power and long-term energy savings.',
         image: '/othersolutions/INDUSTRY.png',
-        showcaseImage: '/othersolutions/solar.png',
+        showcaseImage: '/othersolutions/solar.webp',
         buttons: ['Photovoltaics', 'Energy Storage'],
     },
 ];
