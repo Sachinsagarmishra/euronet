@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './ContactForm.module.css';
 import { useLanguage } from '@/context/LanguageContext';
 import AnimateOnScroll from './AnimateOnScroll';
@@ -75,6 +75,30 @@ const ContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+    // Parallax effect state
+    const sectionRef = useRef<HTMLElement>(null);
+    const [parallaxOffset, setParallaxOffset] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (sectionRef.current) {
+                const rect = sectionRef.current.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // Calculate how much of the section is in view
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+                    setParallaxOffset(progress * 40); // Max 40px movement
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // Initial call
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
@@ -109,18 +133,30 @@ const ContactForm = () => {
     };
 
     return (
-        <section className={styles.section}>
+        <section className={styles.section} ref={sectionRef}>
             {/* Animated Background Elements */}
             <div className={styles.bgElements}>
-                <div className={styles.bgCircle1}></div>
-                <div className={styles.bgCircle2}></div>
-                <div className={styles.bgCircle3}></div>
+                <div
+                    className={styles.bgCircle1}
+                    style={{ transform: `translate(${parallaxOffset * 0.5}px, ${parallaxOffset * 0.3}px)` }}
+                ></div>
+                <div
+                    className={styles.bgCircle2}
+                    style={{ transform: `translate(${-parallaxOffset * 0.4}px, ${-parallaxOffset * 0.2}px)` }}
+                ></div>
+                <div
+                    className={styles.bgCircle3}
+                    style={{ transform: `translate(${parallaxOffset * 0.3}px, ${-parallaxOffset * 0.4}px)` }}
+                ></div>
                 <div className={styles.bgGrid}></div>
             </div>
 
             <div className={styles.container}>
                 {/* Left Side - Info */}
-                <div className={styles.infoSide}>
+                <div
+                    className={styles.infoSide}
+                    style={{ transform: `translateY(${parallaxOffset * -0.3}px)` }}
+                >
                     <div className={styles.infoContent}>
                         <AnimateOnScroll animation="fadeUp" delay={0}>
                             <span className={styles.label}>
@@ -178,7 +214,10 @@ const ContactForm = () => {
                 </div>
 
                 {/* Right Side - Form */}
-                <div className={styles.formSide}>
+                <div
+                    className={styles.formSide}
+                    style={{ transform: `translateY(${parallaxOffset * 0.2}px)` }}
+                >
                     <div className={styles.formCard}>
                         <div className={styles.formHeader}>
                             <h3 className={styles.formTitle}>

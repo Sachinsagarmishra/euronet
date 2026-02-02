@@ -22,6 +22,8 @@
     top: -200px;
     right: -100px;
     animation: float1 20s ease-in-out infinite;
+    will-change: transform;
+    transition: transform 0.15s ease-out;
 }
 
 .bgCircle2 {
@@ -33,6 +35,8 @@
     bottom: -100px;
     left: -100px;
     animation: float2 15s ease-in-out infinite;
+    will-change: transform;
+    transition: transform 0.15s ease-out;
 }
 
 .bgCircle3 {
@@ -44,6 +48,8 @@
     top: 50%;
     left: 30%;
     animation: float3 18s ease-in-out infinite;
+    will-change: transform;
+    transition: transform 0.15s ease-out;
 }
 
 .bgGrid {
@@ -114,6 +120,8 @@
 /* Left Info Side */
 .infoSide {
     color: #fff;
+    will-change: transform;
+    transition: transform 0.1s ease-out;
 }
 
 .infoContent {
@@ -282,6 +290,8 @@
 .formSide {
     display: flex;
     justify-content: center;
+    will-change: transform;
+    transition: transform 0.1s ease-out;
 }
 
 .formCard {

@@ -134,8 +134,16 @@ const PowerBeyond = () => {
         <section className={styles.section} ref={sectionRef}>
             {/* Sticky wrapper keeps the visual content fixed during scroll */}
             <div className={styles.stickyWrapper}>
-                {/* Parallax Background */}
-                <div className={styles.parallaxBg}></div>
+                {/* Background Video */}
+                <video
+                    className={styles.backgroundVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src="/power-beyond.mp4" type="video/mp4" />
+                </video>
 
                 {/* Overlay */}
                 <div className={styles.overlay}></div>
