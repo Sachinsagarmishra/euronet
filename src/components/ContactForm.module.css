@@ -1,8 +1,29 @@
 .section {
-    background: #2F3091;
+    background: #1a1a2e;
+    /* Fallback */
     padding: 70px 0;
     position: relative;
     overflow: hidden;
+}
+
+.bgImage {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-image: url('/work-with-euronet.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    will-change: transform;
+}
+
+.bgOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(46, 48, 145, 0.94) 0%, rgba(26, 26, 46, 0.88) 100%);
+    z-index: 1;
 }
 
 /* Animated Background Elements */
@@ -59,6 +80,7 @@
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
+    z-index: 2;
 }
 
 @keyframes float1 {

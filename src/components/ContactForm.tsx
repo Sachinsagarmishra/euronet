@@ -134,8 +134,15 @@ const ContactForm = () => {
 
     return (
         <section className={styles.section} ref={sectionRef}>
+            {/* Background Image with Minimal Parallax */}
+            <div
+                className={styles.bgImage}
+                style={{ transform: `translateY(${parallaxOffset * -0.15}px)` }}
+            ></div>
+
             {/* Animated Background Elements */}
             <div className={styles.bgElements}>
+                <div className={styles.bgOverlay}></div>
                 <div
                     className={styles.bgCircle1}
                     style={{ transform: `translate(${parallaxOffset * 0.5}px, ${parallaxOffset * 0.3}px)` }}
