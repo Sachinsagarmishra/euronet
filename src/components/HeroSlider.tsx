@@ -28,18 +28,16 @@ const HeroSlider = () => {
             subtitle: '7 - 9 April 2026',
             title: "Meet Us at Middle East Energy 2026",
             description: "Join Euronet at the Middle East's definitive energy marketplace. Visit our booth at the Dubai World Trade Centre to explore our latest innovations.",
-            primaryBtn: 'Register for Visitor Badge',
-            secondaryBtn: 'Purchase VIP Experience',
-            isEvent: true,
+            primaryBtn: 'Learn More',
         },
         {
             id: 3,
-            media: '/slideer-bg/slide-3.png',
+            media: '/slideer-bg/76047.jpg',
             isVideo: false,
-            subtitle: t('slide3Subtitle'),
-            title: t('slide3Title'),
-            description: t('slide3Description'),
-            primaryBtn: t('learnMore'),
+            subtitle: 'BLOG TOPIC',
+            title: 'Energy That Keeps Data Centres Running',
+            description: 'How scalable solar, energy storage, and electrical solutions support uptime, efficiency, and cost control in data centre operations.',
+            primaryBtn: 'See More',
         },
     ];
 
@@ -126,11 +124,6 @@ const HeroSlider = () => {
                                         <button className={styles.primaryBtn}>
                                             {slide.primaryBtn}
                                         </button>
-                                        {slide.secondaryBtn && (
-                                            <button className={styles.secondaryBtn}>
-                                                {slide.secondaryBtn}
-                                            </button>
-                                        )}
                                     </div>
                                 </div>
                             </div>
