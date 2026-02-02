@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import styles from './WhyChooseUs.module.css';
 import AnimateOnScroll from './AnimateOnScroll';
 
@@ -10,6 +11,7 @@ const industries = [
         title: 'Telecom & Data Center',
         description: 'Telecom and data center solutions delivering reliable power, uptime, and energy efficiency',
         image: '/othersolutions/TELECOM.png',
+        showcaseImage: '/othersolutions/Telecom1.png',
         buttons: ['Data Centers', 'Telecom Infrastructure'],
     },
     {
@@ -17,6 +19,7 @@ const industries = [
         title: 'Power Utility',
         description: 'Providing innovative solutions for efficient power generation, transmission, and distribution',
         image: '/othersolutions/POWER%20UTILITY.png',
+        showcaseImage: '/othersolutions/Power.png',
         buttons: ['Distribution Grid', 'Transmission Grid'],
     },
     {
@@ -24,6 +27,7 @@ const industries = [
         title: 'IoT Devices',
         description: 'IoT device solutions enabling smart connectivity, real-time monitoring, and efficient energy management.',
         image: '/othersolutions/IOT%20DEVICES.png',
+        showcaseImage: '',
         buttons: ['Smart Sensors', 'Connected Devices'],
     },
     {
@@ -31,6 +35,7 @@ const industries = [
         title: 'OEM',
         description: 'OEM solutions delivering customized, reliable solar and power components for diverse manufacturing needs.',
         image: '/othersolutions/OEM.png',
+        showcaseImage: '/othersolutions/OEM4.png',
         buttons: ['Solar Components', 'Power Systems'],
     },
     {
@@ -38,6 +43,7 @@ const industries = [
         title: 'Security',
         description: 'Security solutions delivering reliable power, surveillance support, and uninterrupted protection.',
         image: '/othersolutions/SECURITY.png',
+        showcaseImage: '',
         buttons: ['Surveillance', 'Access Control'],
     },
     {
@@ -45,6 +51,7 @@ const industries = [
         title: 'Solar Solutions',
         description: 'Advanced solar systems delivering clean, sustainable power and long-term energy savings.',
         image: '/othersolutions/INDUSTRY.png',
+        showcaseImage: '/othersolutions/solar.png',
         buttons: ['Photovoltaics', 'Energy Storage'],
     },
 ];
@@ -122,6 +129,20 @@ export default function WhyChooseUs() {
                         {/* Expanded Content (shown on hover) */}
                         <div className={styles.expandedContent}>
                             <div className={styles.expandedCard}>
+                                {/* Image on left side */}
+                                {item.showcaseImage && (
+                                    <div className={styles.showcaseImageWrapper}>
+                                        <Image
+                                            src={item.showcaseImage}
+                                            alt={`${item.title} products`}
+                                            width={450}
+                                            height={350}
+                                            className={styles.showcaseImage}
+                                            style={{ objectFit: 'contain' }}
+                                        />
+                                    </div>
+                                )}
+                                {/* Text content on right side */}
                                 <div className={styles.expandedInner}>
                                     <h3 className={styles.expandedTitle}>{item.title}</h3>
                                     <p className={styles.expandedDescription}>{item.description}</p>

@@ -107,7 +107,7 @@
 .expandedCard {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background: #fff;
     width: 100%;
     height: 100%;
@@ -120,7 +120,8 @@
     padding: 50px 40px;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    justify-content: center;
+    flex: 1;
 }
 
 .expandedTitle {
@@ -171,6 +172,28 @@
 
 .expandedLink:hover svg {
     transform: translateX(4px);
+}
+
+/* Product Showcase Image - Left side */
+.showcaseImageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 30px;
+    background: #f8f9fa;
+}
+
+.showcaseImage {
+    max-width: 100%;
+    max-height: 380px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.showcaseImageWrapper:hover .showcaseImage {
+    transform: scale(1.03);
 }
 
 /* Mobile Slider - Hidden on desktop */
