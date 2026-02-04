@@ -28,26 +28,21 @@
     max-width: 600px;
 }
 
-.selectWrapper {
+.nameWrapper {
     position: relative;
 }
 
-.select {
-    appearance: none;
+.nameInput {
     background-color: #e8e8e8;
     border: none;
-    padding: 14px 40px 14px 16px;
+    padding: 14px 16px;
     font-size: 14px;
     color: #333;
-    cursor: pointer;
     min-width: 150px;
     border-radius: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
 }
 
-.select:focus {
+.nameInput:focus {
     outline: none;
 }
 
@@ -103,14 +98,14 @@
         max-width: 100%;
     }
 
-    .select,
+    .nameInput,
     .input,
     .button {
         width: 100%;
         min-width: unset;
     }
 
-    .select {
+    .nameInput {
         border-radius: 4px 4px 0 0;
     }
 

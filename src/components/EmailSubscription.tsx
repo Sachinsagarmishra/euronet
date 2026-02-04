@@ -5,14 +5,14 @@ import styles from './EmailSubscription.module.css';
 
 export default function EmailSubscription() {
     const [email, setEmail] = useState('');
-    const [userType, setUserType] = useState('');
+    const [name, setName] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         // Handle subscription logic here
-        console.log('Subscribed:', { email, userType });
+        console.log('Subscribed:', { email, name });
         setEmail('');
-        setUserType('');
+        setName('');
     };
 
     return (
@@ -21,20 +21,15 @@ export default function EmailSubscription() {
                 <h3 className={styles.title}>Email Subscription</h3>
 
                 <form className={styles.form} onSubmit={handleSubmit}>
-                    <div className={styles.selectWrapper}>
-                        <select
-                            className={styles.select}
-                            value={userType}
-                            onChange={(e) => setUserType(e.target.value)}
-                        >
-                            <option value="">I am a...</option>
-                            <option value="installer">installer</option>
-                            <option value="distributors">Distributors</option>
-                            <option value="homeowners">Homeowners</option>
-                            <option value="business-owners">Business owners</option>
-                            <option value="power-plant-owner">Power plant owner</option>
-                            <option value="media">media</option>
-                        </select>
+                    <div className={styles.nameWrapper}>
+                        <input
+                            type="text"
+                            className={styles.nameInput}
+                            placeholder="Please enter your name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
                     </div>
 
                     <input

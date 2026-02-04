@@ -35,7 +35,7 @@ const industries = [
         title: 'OEM',
         description: 'OEM solutions delivering customized, reliable solar and power components for diverse manufacturing needs.',
         image: '/othersolutions/OEM.png',
-        showcaseImage: '/othersolutions/OEM4.png',
+        // showcaseImage: '/othersolutions/OEM4.png',
         buttons: ['Solar Components', 'Power Systems'],
     },
     {
@@ -101,7 +101,7 @@ export default function WhyChooseUs() {
             {/* Section Heading */}
             <AnimateOnScroll animation="fadeUp" delay={0}>
                 <div className={styles.sectionHeader}>
-                    <h2 className={styles.sectionTitle}>Why Distributors Choose Us</h2>
+                    <h2 className={styles.sectionTitle}>Our Solutions</h2>
                 </div>
             </AnimateOnScroll>
 

@@ -24,10 +24,12 @@ const translations: Translations = {
     search: { en: 'Search', ar: 'بحث' },
 
     // Solutions dropdown
-    residentialSolar: { en: 'Residential Solar', ar: 'الطاقة الشمسية السكنية' },
-    commercialSolar: { en: 'Commercial Solar', ar: 'الطاقة الشمسية التجارية' },
-    industrialSolar: { en: 'Industrial Solar', ar: 'الطاقة الشمسية الصناعية' },
-    solarFarms: { en: 'Solar Farms', ar: 'مزارع الطاقة الشمسية' },
+    telecomDataCenter: { en: 'Telecom & Data Center', ar: 'الاتصالات ومركز البيانات' },
+    powerUtility: { en: 'Power Utility', ar: 'مرافق الطاقة' },
+    iotDevices: { en: 'IoT Devices', ar: 'أجهزة إنترنت الأشياء' },
+    oem: { en: 'OEM', ar: 'المعدات الأصلية' },
+    security: { en: 'Security', ar: 'الأمن' },
+    solarSolutions: { en: 'Solar Solutions', ar: 'حلول الطاقة الشمسية' },
 
     // Hero Slider
     slide1Subtitle: { en: 'SOLAR ENERGY SERVICE', ar: 'خدمة الطاقة الشمسية' },

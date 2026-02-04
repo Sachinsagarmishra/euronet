@@ -3,9 +3,12 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './Footer.module.css';
+import { useLanguage } from '@/context/LanguageContext';
 import AnimateOnScroll from './AnimateOnScroll';
 
 const Footer: React.FC = () => {
+    const { t } = useLanguage();
+
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
@@ -45,10 +48,12 @@ const Footer: React.FC = () => {
                         <div className={styles.linksColumn}>
                             <h4 className={styles.columnTitle}>SOLUTIONS</h4>
                             <ul className={styles.linksList}>
-                                <li><a href="#">Residential Solution</a></li>
-                                <li><a href="#">C&I Solution</a></li>
-                                <li><a href="#">Agriculture Solution</a></li>
-                                <li><a href="#">Solar Light</a></li>
+                                <li><a href="/solutions/telecom-data-center">{t('telecomDataCenter')}</a></li>
+                                <li><a href="/solutions/power-utility">{t('powerUtility')}</a></li>
+                                <li><a href="/solutions/iot-devices">{t('iotDevices')}</a></li>
+                                <li><a href="/solutions/oem">{t('oem')}</a></li>
+                                <li><a href="/solutions/security">{t('security')}</a></li>
+                                <li><a href="/solutions/solar-solutions">{t('solarSolutions')}</a></li>
                             </ul>
                         </div>
 

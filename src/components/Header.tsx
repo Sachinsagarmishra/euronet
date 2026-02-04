@@ -62,10 +62,12 @@ const Header = () => {
             href: '/solutions',
             hasDropdown: true,
             dropdownItems: [
-                { label: t('residentialSolar'), href: '/solutions/residential' },
-                { label: t('commercialSolar'), href: '/solutions/commercial' },
-                { label: t('industrialSolar'), href: '/solutions/industrial' },
-                { label: t('solarFarms'), href: '/solutions/solar-farms' },
+                { label: t('telecomDataCenter'), href: '/solutions/telecom-data-center' },
+                { label: t('powerUtility'), href: '/solutions/power-utility' },
+                { label: t('iotDevices'), href: '/solutions/iot-devices' },
+                { label: t('oem'), href: '/solutions/oem' },
+                { label: t('security'), href: '/solutions/security' },
+                { label: t('solarSolutions'), href: '/solutions/solar-solutions' },
             ]
         },
         { label: t('products'), href: '/products' },
@@ -154,10 +156,10 @@ const Header = () => {
                             <h4 className={styles.recommendationTitle}>{language === 'ar' ? 'اقتراحات الحلول' : 'Popular Solutions'}</h4>
                             <ul className={styles.recommendationList}>
                                 {[
-                                    { label: 'Residential Solution', icon: 'fa-house-chimney' },
-                                    { label: 'C&I Solution', icon: 'fa-building' },
-                                    { label: 'Agriculture Solution', icon: 'fa-seedling' },
-                                    { label: 'Solar Light', icon: 'fa-sun' }
+                                    { label: t('telecomDataCenter'), icon: 'fa-server' },
+                                    { label: t('powerUtility'), icon: 'fa-plug-circle-bolt' },
+                                    { label: t('iotDevices'), icon: 'fa-microchip' },
+                                    { label: t('solarSolutions'), icon: 'fa-sun' }
                                 ].map((item, idx) => (
                                     <li key={idx} className={styles.recommendationItem}>
                                         <Link href={`/solutions/${item.label.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} onClick={() => setIsSearchOpen(false)}>

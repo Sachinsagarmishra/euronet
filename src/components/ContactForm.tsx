@@ -88,7 +88,7 @@ const ContactForm = () => {
                 // Calculate how much of the section is in view
                 if (rect.top < windowHeight && rect.bottom > 0) {
                     const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-                    setParallaxOffset(progress * 40); // Max 40px movement
+                    setParallaxOffset(progress); // Store progress (0 to 1)
                 }
             }
         };
@@ -134,28 +134,23 @@ const ContactForm = () => {
 
     return (
         <section className={styles.section} ref={sectionRef}>
-            {/* Background Image with Minimal Parallax */}
-            <div
-                className={styles.bgImage}
-                style={{
-                    transform: `translate3d(0, ${(parallaxOffset - 0.5) * 60}px, 0)`
-                }}
-            ></div>
+            {/* Background Image with Fixed Parallax Effect */}
+            <div className={styles.bgImage}></div>
 
             {/* Animated Background Elements */}
             <div className={styles.bgElements}>
                 <div className={styles.bgOverlay}></div>
                 <div
                     className={styles.bgCircle1}
-                    style={{ transform: `translate(${parallaxOffset * 0.5}px, ${parallaxOffset * 0.3}px)` }}
+                    style={{ transform: `translate(${parallaxOffset * 20}px, ${parallaxOffset * 12}px)` }}
                 ></div>
                 <div
                     className={styles.bgCircle2}
-                    style={{ transform: `translate(${-parallaxOffset * 0.4}px, ${-parallaxOffset * 0.2}px)` }}
+                    style={{ transform: `translate(${-parallaxOffset * 16}px, ${-parallaxOffset * 8}px)` }}
                 ></div>
                 <div
                     className={styles.bgCircle3}
-                    style={{ transform: `translate(${parallaxOffset * 0.3}px, ${-parallaxOffset * 0.4}px)` }}
+                    style={{ transform: `translate(${parallaxOffset * 12}px, ${-parallaxOffset * 16}px)` }}
                 ></div>
                 <div className={styles.bgGrid}></div>
             </div>
@@ -164,7 +159,7 @@ const ContactForm = () => {
                 {/* Left Side - Info */}
                 <div
                     className={styles.infoSide}
-                    style={{ transform: `translateY(${parallaxOffset * -0.3}px)` }}
+                    style={{ transform: `translateY(${(parallaxOffset - 0.5) * -40}px)` }}
                 >
                     <div className={styles.infoContent}>
                         <AnimateOnScroll animation="fadeUp" delay={0}>
@@ -225,7 +220,7 @@ const ContactForm = () => {
                 {/* Right Side - Form */}
                 <div
                     className={styles.formSide}
-                    style={{ transform: `translateY(${parallaxOffset * 0.2}px)` }}
+                    style={{ transform: `translateY(${(parallaxOffset - 0.5) * 40}px)` }}
                 >
                     <div className={styles.formCard}>
                         <div className={styles.formHeader}>
