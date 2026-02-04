@@ -18,8 +18,9 @@ const translations: Translations = {
     solutions: { en: 'Solutions', ar: 'الحلول' },
     products: { en: 'Products', ar: 'المنتجات' },
     services: { en: 'Services', ar: 'الخدمات' },
-    aboutUs: { en: 'About us', ar: 'من نحن' },
-    getFobCifPricing: { en: 'Get FOB/CIF Pricing', ar: 'احصل على أسعار FOB/CIF' },
+    aboutUs: { en: 'About Us', ar: 'من نحن' },
+    resourcesDownloads: { en: 'Resources / Downloads', ar: 'الموارد / التحميلات' },
+    partnerWithUs: { en: 'Partner With Us', ar: 'شارك معنا' },
     searchPlaceholder: { en: 'Search products, solutions...', ar: 'البحث عن المنتجات، الحلول...' },
     search: { en: 'Search', ar: 'بحث' },
 

@@ -56,7 +56,7 @@ const Header = () => {
     };
 
     const navItems = [
-        { label: t('home'), href: '/' },
+        { label: t('aboutUs'), href: '/about' },
         {
             label: t('solutions'),
             href: '/solutions',
@@ -71,8 +71,7 @@ const Header = () => {
             ]
         },
         { label: t('products'), href: '/products' },
-        { label: t('services'), href: '/services' },
-        { label: t('aboutUs'), href: '/about' },
+        { label: t('resourcesDownloads'), href: '/download' },
     ];
 
     const languages = [
@@ -239,8 +238,8 @@ const Header = () => {
                     </nav>
 
                     {/* CTA Button */}
-                    <Link href="/pricing" className={styles.ctaButton}>
-                        {t('getFobCifPricing')}
+                    <Link href="/contact" className={styles.ctaButton}>
+                        {t('partnerWithUs')}
                     </Link>
 
                     {/* Mobile Menu Toggle */}
@@ -310,8 +309,8 @@ const Header = () => {
                         </ul>
                     </nav>
 
-                    <Link href="/pricing" className={styles.mobileCta} onClick={toggleMobileMenu}>
-                        {t('getFobCifPricing')}
+                    <Link href="/contact" className={styles.mobileCta} onClick={toggleMobileMenu}>
+                        {t('partnerWithUs')}
                     </Link>
                 </div>
             </div>
