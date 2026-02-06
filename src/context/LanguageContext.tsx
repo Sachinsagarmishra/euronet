@@ -58,6 +58,7 @@ const translations: Translations = {
     whoWeAreSubtitle: { en: 'Largest B2B & Project Supplier of Solar & Electric Products In Africa and Asia', ar: 'أكبر مورد B2B ومشاريع للمنتجات الشمسية والكهربائية في أفريقيا وآسيا' },
     whoWeAreDescription: { en: 'EURONET is the leading brand in the Middle East, African region and Central Asia, over the decade we have achieved many milestones in more than 48 countries worldwide. We have always catered high quality with cost efficient products to our customers. We have full range of advanced technology Solar Products, Solar Appliances, Electric Products and Home appliances in our product portfolio. We look for Business opportunities across the world supplying our products in large quantities', ar: 'يورونت هي العلامة التجارية الرائدة في الشرق الأوسط والمنطقة الأفريقية وآسيا الوسطى، وخلال العقد الماضي حققنا العديد من الإنجازات في أكثر من 48 دولة حول العالم. نقدم دائماً منتجات عالية الجودة بأسعار تنافسية لعملائنا. لدينا مجموعة كاملة من منتجات الطاقة الشمسية والأجهزة الشمسية والمنتجات الكهربائية والأجهزة المنزلية المتطورة. نسعى للحصول على فرص تجارية في جميع أنحاء العالم لتوريد منتجاتنا بكميات كبيرة' },
     knowMore: { en: 'Know More', ar: 'اعرف المزيد' },
+    contactUs: { en: 'Contact Us', ar: 'اتصل بنا' },
 };
 
 interface LanguageContextType {

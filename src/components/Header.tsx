@@ -72,6 +72,7 @@ const Header = () => {
         },
         { label: t('products'), href: '/products' },
         { label: t('resourcesDownloads'), href: '/download' },
+        { label: t('partnerWithUs'), href: '/partner' },
     ];
 
     const languages = [
@@ -238,9 +239,24 @@ const Header = () => {
                     </nav>
 
                     {/* CTA Button */}
-                    <Link href="/contact" className={styles.ctaButton}>
-                        {t('partnerWithUs')}
-                    </Link>
+                    <button
+                        onClick={() => {
+                            const element = document.getElementById('contact');
+                            if (element) {
+                                const offset = 100; // Adjust offset if header is fixed
+                                const elementPosition = element.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }}
+                        className={styles.ctaButton}
+                    >
+                        {t('contactUs')}
+                    </button>
 
                     {/* Mobile Menu Toggle */}
                     <button
@@ -309,9 +325,27 @@ const Header = () => {
                         </ul>
                     </nav>
 
-                    <Link href="/contact" className={styles.mobileCta} onClick={toggleMobileMenu}>
-                        {t('partnerWithUs')}
-                    </Link>
+                    <button
+                        className={styles.mobileCta}
+                        onClick={() => {
+                            toggleMobileMenu();
+                            setTimeout(() => {
+                                const element = document.getElementById('contact');
+                                if (element) {
+                                    const offset = 80;
+                                    const elementPosition = element.getBoundingClientRect().top;
+                                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                                    window.scrollTo({
+                                        top: offsetPosition,
+                                        behavior: 'smooth'
+                                    });
+                                }
+                            }, 300); // Wait for menu transition
+                        }}
+                    >
+                        {t('contactUs')}
+                    </button>
                 </div>
             </div>
         </>

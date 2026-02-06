@@ -133,7 +133,7 @@ const ContactForm = () => {
     };
 
     return (
-        <section className={styles.section} ref={sectionRef}>
+        <section className={styles.section} ref={sectionRef} id="contact">
             {/* Background Image with Fixed Parallax Effect */}
             <div className={styles.bgImage}></div>
 
