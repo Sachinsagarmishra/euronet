@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './LatestUpdates.module.css';
 import AnimateOnScroll from './AnimateOnScroll';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface Article {
     id: string;
@@ -13,58 +14,59 @@ interface Article {
     category: 'news' | 'blog';
 }
 
-const articles: Article[] = [
-    // News Articles
-    {
-        id: 'news-1',
-        date: 'JANUARY 15, 2026',
-        title: 'The Future of Solar and Renewable Energy Solutions Worldwide',
-        image: '/blog/The Future of Solar and Renewable Energy Solutions Worldwide.png',
-        category: 'news'
-    },
-    {
-        id: 'news-2',
-        date: 'JANUARY 12, 2026',
-        title: 'How Euronetworld Is Driving Innovation in Solar and Electrical Systems',
-        image: '/blog/How Euronetworld Is Driving Innovation in Solar and Electrical Systems.png',
-        category: 'news'
-    },
-    {
-        id: 'news-3',
-        date: 'JANUARY 09, 2026',
-        title: 'Choosing the Right Solar Power Products for Industrial and Commercial Use',
-        image: '/blog/Choosing the Right Solar Power Products for Industrial and Commercial Use.png',
-        category: 'news'
-    },
-    // Blog Articles
-    {
-        id: 'blog-1',
-        date: 'JANUARY 14, 2026',
-        title: 'Top 5 Benefits of Installing Solar Panels for Your Home',
-        image: '/blog/The Future of Solar and Renewable Energy Solutions Worldwide.png',
-        category: 'blog'
-    },
-    {
-        id: 'blog-2',
-        date: 'JANUARY 10, 2026',
-        title: 'Understanding Solar Energy: A Complete Guide for Beginners',
-        image: '/blog/How Euronetworld Is Driving Innovation in Solar and Electrical Systems.png',
-        category: 'blog'
-    },
-    {
-        id: 'blog-3',
-        date: 'JANUARY 07, 2026',
-        title: 'Sustainable Living: How Solar Energy Reduces Your Carbon Footprint',
-        image: '/blog/Choosing the Right Solar Power Products for Industrial and Commercial Use.png',
-        category: 'blog'
-    }
-];
-
 const LatestUpdates: React.FC = () => {
+    const { t, language } = useLanguage();
     const [activeTab, setActiveTab] = useState<'news' | 'blog'>('news');
     const [currentSlide, setCurrentSlide] = useState(0);
     const sliderRef = useRef<HTMLDivElement>(null);
     const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
+
+    const articles: Article[] = [
+        // News Articles
+        {
+            id: 'news-1',
+            date: language === 'ar' ? '15 يناير 2026' : 'JANUARY 15, 2026',
+            title: t('news1Title'),
+            image: '/blog/The Future of Solar and Renewable Energy Solutions Worldwide.png',
+            category: 'news'
+        },
+        {
+            id: 'news-2',
+            date: language === 'ar' ? '12 يناير 2026' : 'JANUARY 12, 2026',
+            title: t('news2Title'),
+            image: '/blog/How Euronetworld Is Driving Innovation in Solar and Electrical Systems.png',
+            category: 'news'
+        },
+        {
+            id: 'news-3',
+            date: language === 'ar' ? '09 يناير 2026' : 'JANUARY 09, 2026',
+            title: t('news3Title'),
+            image: '/blog/Choosing the Right Solar Power Products for Industrial and Commercial Use.png',
+            category: 'news'
+        },
+        // Blog Articles
+        {
+            id: 'blog-1',
+            date: language === 'ar' ? '14 يناير 2026' : 'JANUARY 14, 2026',
+            title: t('blog1Title'),
+            image: '/blog/The Future of Solar and Renewable Energy Solutions Worldwide.png',
+            category: 'blog'
+        },
+        {
+            id: 'blog-2',
+            date: language === 'ar' ? '10 يناير 2026' : 'JANUARY 10, 2026',
+            title: t('blog2Title'),
+            image: '/blog/How Euronetworld Is Driving Innovation in Solar and Electrical Systems.png',
+            category: 'blog'
+        },
+        {
+            id: 'blog-3',
+            date: language === 'ar' ? '07 يناير 2026' : 'JANUARY 07, 2026',
+            title: t('blog3Title'),
+            image: '/blog/Choosing the Right Solar Power Products for Industrial and Commercial Use.png',
+            category: 'blog'
+        }
+    ];
 
     const filteredArticles = articles.filter(article => article.category === activeTab);
 
@@ -135,25 +137,25 @@ const LatestUpdates: React.FC = () => {
                 {/* Header */}
                 <AnimateOnScroll animation="fadeUp" delay={0}>
                     <div className={styles.header}>
-                        <h2 className={styles.sectionTitle}>Latest Updates</h2>
+                        <h2 className={styles.sectionTitle}>{t('latestUpdates')}</h2>
 
                         <div className={styles.tabsWrapper}>
                             <button
                                 className={`${styles.tab} ${activeTab === 'news' ? styles.activeTab : ''}`}
                                 onClick={() => setActiveTab('news')}
                             >
-                                News
+                                {t('news')}
                             </button>
                             <span className={styles.tabDivider}></span>
                             <button
                                 className={`${styles.tab} ${activeTab === 'blog' ? styles.activeTab : ''}`}
                                 onClick={() => setActiveTab('blog')}
                             >
-                                Blog
+                                {t('blog')}
                             </button>
                         </div>
 
-                        <button className={styles.viewMoreBtn}>View More</button>
+                        <button className={styles.viewMoreBtn}>{t('viewMore')}</button>
                     </div>
                 </AnimateOnScroll>
 

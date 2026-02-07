@@ -6,29 +6,23 @@ import { useLanguage } from '@/context/LanguageContext';
 import AnimateOnScroll from './AnimateOnScroll';
 
 const WhoWeAre = () => {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
 
     const stats = [
         {
             value: '87%',
-            label: language === 'ar' ? 'الكفاءة' : 'Efficiency',
-            description: language === 'ar'
-                ? 'أنظمة محسنة لأقصى استفادة من الطاقة'
-                : 'Optimized systems for maximum energy utilization',
+            label: t('statsEfficiency'),
+            description: t('statsEfficiencyDesc'),
         },
         {
             value: '30%',
-            label: language === 'ar' ? 'توفير الطاقة' : 'Energy Savings',
-            description: language === 'ar'
-                ? 'مساعدة العملاء على تقليل التكاليف التشغيلية بشكل مستدام'
-                : 'Helping clients reduce operational costs sustainably',
+            label: t('statsEnergySavings'),
+            description: t('statsEnergySavingsDesc'),
         },
         {
             value: '95%',
-            label: language === 'ar' ? 'الموثوقية' : 'Reliability',
-            description: language === 'ar'
-                ? 'أداء مثبت في البيئات الصعبة'
-                : 'Proven performance in demanding environments',
+            label: t('statsReliability'),
+            description: t('statsReliabilityDesc'),
         },
     ];
 
@@ -40,21 +34,19 @@ const WhoWeAre = () => {
                     <AnimateOnScroll animation="fadeUp" delay={0}>
                         <span className={styles.label}>
                             <span className={styles.labelDot}></span>
-                            {language === 'ar' ? 'من نحن' : 'ABOUT US'}
+                            {t('aboutUsUppercase')}
                         </span>
                     </AnimateOnScroll>
 
                     <AnimateOnScroll animation="fadeUp" delay={0.1}>
                         <h2 className={styles.title}>
-                            {language === 'ar' ? 'نحو مستقبل مستدام' : 'Powering a Sustainable Future'}
+                            {t('whoWeAreTitle')}
                         </h2>
                     </AnimateOnScroll>
 
                     <AnimateOnScroll animation="fadeUp" delay={0.2}>
                         <p className={styles.description}>
-                            {language === 'ar'
-                                ? 'تقدم يورونت حلول طاقة متقدمة عبر القطاعات السكنية والزراعية والتجارية والصناعية وخارج الشبكة. تم تصميم أنظمتنا للموثوقية والكفاءة والاستدامة، مما يساعد العملاء على تقليل تكاليف الطاقة والأثر البيئي.'
-                                : 'Euronet delivers advanced energy solutions across residential, agricultural, commercial, industrial, and off-grid sectors. Our systems are designed for reliability, efficiency, and sustainability, helping clients reduce energy costs and environmental impact.'}
+                            {t('whoWeAreMainDesc')}
                         </p>
                     </AnimateOnScroll>
 
@@ -69,14 +61,14 @@ const WhoWeAre = () => {
                                 ))}
                             </div>
                             <span className={styles.ratingText}>
-                                {language === 'ar' ? 'تقييم 5 نجوم من 150+ عميل سعيد!' : 'Rated 5 Stars by 150+ Happy Customers!'}
+                                {t('ratingText')}
                             </span>
                         </div>
                     </AnimateOnScroll>
 
                     <AnimateOnScroll animation="fadeUp" delay={0.4}>
                         <a href="/about" className={styles.link}>
-                            {language === 'ar' ? 'اعرف المزيد' : 'Learn more'}
+                            {t('learnMore')}
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>

@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                                 />
                             </div>
                             <p className={styles.tagline}>
-                                Powering Africa's solar revolution with quality energy solutions from the Middle East to the continent.
+                                {t('footerTagline')}
                             </p>
                             <div className={styles.socialLinks}>
                                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
 
                         {/* Solutions Column */}
                         <div className={styles.linksColumn}>
-                            <h4 className={styles.columnTitle}>SOLUTIONS</h4>
+                            <h4 className={styles.columnTitle}>{t('footerSol')}</h4>
                             <ul className={styles.linksList}>
                                 <li><a href="/solutions/telecom-data-center">{t('telecomDataCenter')}</a></li>
                                 <li><a href="/solutions/power-utility">{t('powerUtility')}</a></li>
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
 
                         {/* Company Column */}
                         <div className={styles.linksColumn}>
-                            <h4 className={styles.columnTitle}>COMPANY</h4>
+                            <h4 className={styles.columnTitle}>{t('footerCompany')}</h4>
                             <ul className={styles.linksList}>
                                 <li><a href="/about">{t('aboutUs')}</a></li>
                                 <li><a href="/contact">{t('partnerWithUs')}</a></li>
@@ -69,12 +69,12 @@ const Footer: React.FC = () => {
 
                         {/* Regions Column */}
                         <div className={styles.linksColumn}>
-                            <h4 className={styles.columnTitle}>REGIONS</h4>
+                            <h4 className={styles.columnTitle}>{t('footerRegions')}</h4>
                             <ul className={styles.linksList}>
-                                <li><a href="#">Middle East (HQ)</a></li>
-                                <li><a href="#">West Africa</a></li>
-                                <li><a href="#">East Africa</a></li>
-                                <li><a href="#">Southern Africa</a></li>
+                                <li><a href="#">{t('middleEast')}</a></li>
+                                <li><a href="#">{t('westAfrica')}</a></li>
+                                <li><a href="#">{t('eastAfrica')}</a></li>
+                                <li><a href="#">{t('southernAfrica')}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
                 {/* Footer Bottom */}
                 <div className={styles.footerBottom}>
                     <p className={styles.copyright}>
-                        © 2026 Euronet Electronics | All Rights Reserved to Euronet & its Affiliates
+                        {t('footerCopyright')}
                     </p>
                     <p className={styles.email}>
                         E-mail : contact@smarteuronet.com

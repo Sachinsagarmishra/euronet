@@ -3,43 +3,45 @@
 import { useState, useEffect } from 'react';
 import styles from './BusinessBenefits.module.css';
 import Image from 'next/image';
-
-const slides = [
-    {
-        id: 1,
-        vsg: 'SOL',
-        title: 'Integrated Energy & Technology Solutions',
-        subtitle: 'One partner for power, data, and smart infrastructure.',
-        description: 'Euronet delivers solutions across renewable energy, power utilities, data centers, IoT devices, and smart systems, helping businesses deploy connected, future-ready infrastructure without juggling multiple vendors.',
-        image: '/products/Integrated-Energy.png'
-    },
-    {
-        id: 2,
-        vsg: 'ENG',
-        title: 'Engineered for Scale, Reliability, and Performance',
-        subtitle: 'Solutions designed to perform in real-world conditions',
-        description: 'From critical power systems to intelligent energy solutions, Euronet focuses on durability, system compatibility, and consistent performance, backed by technical expertise that supports deployment at scale.',
-        image: '/products/Engineered-for-scale.png'
-    },
-    {
-        id: 3,
-        vsg: 'GLB',
-        title: 'Global Standards, Regional Execution',
-        subtitle: 'International capability with on-ground market understanding.',
-        description: 'Operating across the Middle East, Africa, and South Asia, Euronet combines global quality benchmarks with localized execution, ensuring solutions align with regional regulations, climates, and operational needs.',
-        image: '/products/Global-standards.png'
-    }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function BusinessBenefits() {
+    const { t } = useLanguage();
     const [currentSlide, setCurrentSlide] = useState(0);
+
+    const slides = [
+        {
+            id: 1,
+            vsg: 'SOL',
+            title: t('integratedEnergyTitle'),
+            subtitle: t('integratedEnergySubtitle'),
+            description: t('integratedEnergyDescription'),
+            image: '/products/Integrated-Energy.png'
+        },
+        {
+            id: 2,
+            vsg: 'ENG',
+            title: t('engineeredScaleTitle'),
+            subtitle: t('engineeredScaleSubtitle'),
+            description: t('engineeredScaleDescription'),
+            image: '/products/Engineered-for-scale.png'
+        },
+        {
+            id: 3,
+            vsg: 'GLB',
+            title: t('globalStandardsTitle'),
+            subtitle: t('globalStandardsSubtitle'),
+            description: t('globalStandardsDescription'),
+            image: '/products/Global-standards.png'
+        }
+    ];
 
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
         }, 6000);
         return () => clearInterval(timer);
-    }, []);
+    }, [slides.length]);
 
     return (
         <section className={styles.section}>

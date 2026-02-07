@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './PowerBeyond.module.css';
 import { useLanguage } from '@/context/LanguageContext';
+import AnimateOnScroll from './AnimateOnScroll';
 
 interface StatItem {
     number: number;
@@ -81,7 +82,7 @@ const StatCounter = ({ stat, startCounting }: { stat: StatItem; startCounting: b
 };
 
 const PowerBeyond = () => {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
     const sectionRef = useRef<HTMLDivElement>(null);
     const [showStats, setShowStats] = useState(false);
     const [startCounting, setStartCounting] = useState(false);
@@ -152,9 +153,9 @@ const PowerBeyond = () => {
                 <div className={styles.content}>
                     {/* Title - Shows first, fades out on scroll */}
                     <div className={`${styles.titleContainer} ${showStats ? styles.hidden : ''}`}>
-                        <h2 className={styles.title}>
-                            {language === 'ar' ? 'القوة أبعد من ذلك' : 'Power Beyond'}
-                        </h2>
+                        <AnimateOnScroll animation="fadeUp" delay={0}>
+                            <h2 className={styles.title}>{t('powerBeyond')}</h2>
+                        </AnimateOnScroll>
                     </div>
 
                     {/* Stats - Appears on scroll */}

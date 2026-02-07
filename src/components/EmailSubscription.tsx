@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import styles from './EmailSubscription.module.css';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function EmailSubscription() {
+    const { t } = useLanguage();
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
 
@@ -18,14 +20,14 @@ export default function EmailSubscription() {
     return (
         <section className={styles.section}>
             <div className={styles.container}>
-                <h3 className={styles.title}>Email Subscription</h3>
+                <h3 className={styles.title}>{t('emailSubscription')}</h3>
 
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.nameWrapper}>
                         <input
                             type="text"
                             className={styles.nameInput}
-                            placeholder="Please enter your name"
+                            placeholder={t('enterName')}
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
@@ -35,14 +37,14 @@ export default function EmailSubscription() {
                     <input
                         type="email"
                         className={styles.input}
-                        placeholder="Please enter your email address"
+                        placeholder={t('enterEmail')}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
 
                     <button type="submit" className={styles.button}>
-                        subscription
+                        {t('subscribe')}
                     </button>
                 </form>
             </div>

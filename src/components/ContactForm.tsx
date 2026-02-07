@@ -63,7 +63,7 @@ const countriesWithCodes = [
 ];
 
 const ContactForm = () => {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -165,19 +165,17 @@ const ContactForm = () => {
                         <AnimateOnScroll animation="fadeUp" delay={0}>
                             <span className={styles.label}>
                                 <span className={styles.labelDot}></span>
-                                {language === 'ar' ? 'تواصل معنا' : 'GET IN TOUCH'}
+                                {t('getInTouch')}
                             </span>
                         </AnimateOnScroll>
                         <AnimateOnScroll animation="fadeUp" delay={0.1}>
                             <h2 className={styles.title}>
-                                {language === 'ar' ? 'اعمل مع يورونت' : 'Work With Euronet'}
+                                {t('workWithEuronetTitle')}
                             </h2>
                         </AnimateOnScroll>
                         <AnimateOnScroll animation="fadeUp" delay={0.2}>
                             <p className={styles.subtitle}>
-                                {language === 'ar'
-                                    ? 'مكاتب في دبي - الإمارات، الصين، السعودية، نيجيريا، جنوب أفريقيا'
-                                    : 'Offices In Dubai - U.A.E, China, Saudi Arabia, Nigeria, South Africa'}
+                                {t('officesSubtitle')}
                             </p>
                         </AnimateOnScroll>
 
@@ -194,7 +192,7 @@ const ContactForm = () => {
                         {/* Global Offices */}
                         <div className={styles.offices}>
                             <h4 className={styles.officesTitle}>
-                                {language === 'ar' ? 'مكاتبنا العالمية' : 'Our Global Offices'}
+                                {t('globalOfficesTitle')}
                             </h4>
                             <div className={styles.officeFlags}>
                                 <div className={styles.officeFlag} title="UAE - Dubai">
@@ -225,12 +223,10 @@ const ContactForm = () => {
                     <div className={styles.formCard}>
                         <div className={styles.formHeader}>
                             <h3 className={styles.formTitle}>
-                                {language === 'ar' ? 'أرسل لنا رسالة' : 'Send us a Message'}
+                                {t('sendMessageTitle')}
                             </h3>
                             <p className={styles.formSubtitle}>
-                                {language === 'ar'
-                                    ? 'سنعود إليك خلال 24 ساعة'
-                                    : "We'll get back to you within 24 hours"}
+                                {t('sendMessageSubtitle')}
                             </p>
                         </div>
 
@@ -240,7 +236,7 @@ const ContactForm = () => {
                                 {/* Full Name */}
                                 <div className={styles.inputGroup}>
                                     <label className={styles.inputLabel}>
-                                        {language === 'ar' ? 'الاسم الكامل' : 'Full Name'} <span className={styles.required}>*</span>
+                                        {t('fullNameLabel')} <span className={styles.required}>*</span>
                                     </label>
                                     <div className={styles.inputWrapper}>
                                         <svg className={styles.inputIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -252,7 +248,7 @@ const ContactForm = () => {
                                             name="fullName"
                                             value={formData.fullName}
                                             onChange={handleInputChange}
-                                            placeholder={language === 'ar' ? 'أدخل اسمك الكامل' : 'Enter your full name'}
+                                            placeholder={t('fullNamePlaceholder')}
                                             required
                                             className={styles.input}
                                         />
@@ -262,7 +258,7 @@ const ContactForm = () => {
                                 {/* Email */}
                                 <div className={styles.inputGroup}>
                                     <label className={styles.inputLabel}>
-                                        {language === 'ar' ? 'البريد الإلكتروني' : 'Email'} <span className={styles.required}>*</span>
+                                        {t('emailLabel')} <span className={styles.required}>*</span>
                                     </label>
                                     <div className={styles.inputWrapper}>
                                         <svg className={styles.inputIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -274,7 +270,7 @@ const ContactForm = () => {
                                             name="email"
                                             value={formData.email}
                                             onChange={handleInputChange}
-                                            placeholder={language === 'ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}
+                                            placeholder={t('emailPlaceholder')}
                                             required
                                             className={styles.input}
                                         />
@@ -287,7 +283,7 @@ const ContactForm = () => {
                                 {/* Country */}
                                 <div className={styles.inputGroup}>
                                     <label className={styles.inputLabel}>
-                                        {language === 'ar' ? 'البلد' : 'Country'} <span className={styles.required}>*</span>
+                                        {t('countryLabel')} <span className={styles.required}>*</span>
                                     </label>
                                     <div className={styles.inputWrapper}>
                                         <svg className={styles.inputIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -302,7 +298,7 @@ const ContactForm = () => {
                                             required
                                             className={styles.select}
                                         >
-                                            <option value="">{language === 'ar' ? 'اختر بلدك' : 'Select your country'}</option>
+                                            <option value="">{t('selectCountry')}</option>
                                             {countriesWithCodes.map((country) => (
                                                 <option key={country.name} value={country.name}>{country.name}</option>
                                             ))}
@@ -313,7 +309,7 @@ const ContactForm = () => {
                                 {/* Phone Number */}
                                 <div className={styles.inputGroup}>
                                     <label className={styles.inputLabel}>
-                                        {language === 'ar' ? 'رقم الهاتف' : 'Phone'} <span className={styles.required}>*</span>
+                                        {t('phoneLabel')} <span className={styles.required}>*</span>
                                     </label>
                                     <div className={styles.phoneWrapper}>
                                         <div className={styles.phoneCodeDisplay}>
@@ -324,7 +320,7 @@ const ContactForm = () => {
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleInputChange}
-                                            placeholder={language === 'ar' ? 'أدخل رقم الهاتف' : 'Enter phone number'}
+                                            placeholder={t('phonePlaceholder')}
                                             required
                                             className={styles.phoneInput}
                                         />
@@ -335,13 +331,13 @@ const ContactForm = () => {
                             {/* Message */}
                             <div className={styles.inputGroup}>
                                 <label className={styles.inputLabel}>
-                                    {language === 'ar' ? 'رسالتك' : 'Type Your Message Here'}
+                                    {t('messageLabel')}
                                 </label>
                                 <textarea
                                     name="message"
                                     value={formData.message}
                                     onChange={handleInputChange}
-                                    placeholder={language === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...'}
+                                    placeholder={t('messagePlaceholder')}
                                     rows={4}
                                     className={styles.textarea}
                                 />
@@ -356,18 +352,18 @@ const ContactForm = () => {
                                 {isSubmitting ? (
                                     <>
                                         <span className={styles.spinner}></span>
-                                        {language === 'ar' ? 'جاري الإرسال...' : 'Sending...'}
+                                        {t('sending')}
                                     </>
                                 ) : submitStatus === 'success' ? (
                                     <>
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                                             <polyline points="20 6 9 17 4 12" />
                                         </svg>
-                                        {language === 'ar' ? 'تم الإرسال!' : 'Sent Successfully!'}
+                                        {t('sentSuccessfully')}
                                     </>
                                 ) : (
                                     <>
-                                        {language === 'ar' ? 'تقديم' : 'Apply'}
+                                        {t('apply')}
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                             <line x1="5" y1="12" x2="19" y2="12" />
                                             <polyline points="12 5 19 12 12 19" />

@@ -153,7 +153,7 @@ const Header = () => {
                         </form>
 
                         <div className={styles.searchRecommendations}>
-                            <h4 className={styles.recommendationTitle}>{language === 'ar' ? 'اقتراحات الحلول' : 'Popular Solutions'}</h4>
+                            <h4 className={styles.recommendationTitle}>{t('popularSolutions')}</h4>
                             <ul className={styles.recommendationList}>
                                 {[
                                     { label: t('telecomDataCenter'), icon: 'fa-server' },

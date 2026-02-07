@@ -4,63 +4,65 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './WhyChooseUs.module.css';
 import AnimateOnScroll from './AnimateOnScroll';
-
-const industries = [
-    {
-        id: 'telecom-data-center',
-        title: 'Telecom & Data Center',
-        description: 'Telecom and data center solutions delivering reliable power, uptime, and energy efficiency',
-        image: '/othersolutions/telecom-bg.png',
-        showcaseImage: '/othersolutions/telecom-showcase.png',
-        buttons: ['Data Centers', 'Telecom Infrastructure'],
-    },
-    {
-        id: 'power-utility',
-        title: 'Power Utility',
-        description: 'Providing innovative solutions for efficient power generation, transmission, and distribution',
-        image: '/othersolutions/power-bg.png',
-        showcaseImage: '/othersolutions/power-showcase.png',
-        buttons: ['Distribution Grid', 'Transmission Grid'],
-    },
-    {
-        id: 'iot-devices',
-        title: 'IoT Devices',
-        description: 'IoT device solutions enabling smart connectivity, real-time monitoring, and efficient energy management.',
-        image: '/othersolutions/iot-bg.png',
-        showcaseImage: '/othersolutions/iot-showcase.webp',
-        buttons: ['Smart Sensors', 'Connected Devices'],
-    },
-    {
-        id: 'oem',
-        title: 'OEM',
-        description: 'OEM solutions delivering customized, reliable solar and power components for diverse manufacturing needs.',
-        image: '/othersolutions/oem-bg.png',
-        // showcaseImage: '/othersolutions/OEM4.png',
-        buttons: ['Solar Components', 'Power Systems'],
-    },
-    {
-        id: 'security',
-        title: 'Security',
-        description: 'Security solutions delivering reliable power, surveillance support, and uninterrupted protection.',
-        image: '/othersolutions/security-bg.png',
-        showcaseImage: '/othersolutions/security-showcase.webp',
-        buttons: ['Surveillance', 'Access Control'],
-    },
-    {
-        id: 'solar-solutions',
-        title: 'Solar Solutions',
-        description: 'Advanced solar systems delivering clean, sustainable power and long-term energy savings.',
-        image: '/othersolutions/solar-bg.png',
-        showcaseImage: '/othersolutions/solar-showcase.webp',
-        buttons: ['Photovoltaics', 'Energy Storage'],
-    },
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function WhyChooseUs() {
+    const { t } = useLanguage();
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
     const sliderRef = useRef<HTMLDivElement>(null);
+
+    const industries = [
+        {
+            id: 'telecom-data-center',
+            title: t('telecomAndDataCenterTitle'),
+            description: t('telecomAndDataCenterDesc'),
+            image: '/othersolutions/telecom-bg.png',
+            showcaseImage: '/othersolutions/telecom-showcase.png',
+            buttons: ['Data Centers', 'Telecom Infrastructure'],
+        },
+        {
+            id: 'power-utility',
+            title: t('powerUtilityTitle'),
+            description: t('powerUtilityDesc'),
+            image: '/othersolutions/power-bg.png',
+            showcaseImage: '/othersolutions/power-showcase.png',
+            buttons: ['Distribution Grid', 'Transmission Grid'],
+        },
+        {
+            id: 'iot-devices',
+            title: t('iotDevicesTitle'),
+            description: t('iotDevicesDesc'),
+            image: '/othersolutions/iot-bg.png',
+            showcaseImage: '/othersolutions/iot-showcase.webp',
+            buttons: ['Smart Sensors', 'Connected Devices'],
+        },
+        {
+            id: 'oem',
+            title: t('oemTitle'),
+            description: t('oemDesc'),
+            image: '/othersolutions/oem-bg.png',
+            // showcaseImage: '/othersolutions/OEM4.png',
+            buttons: ['Solar Components', 'Power Systems'],
+        },
+        {
+            id: 'security',
+            title: t('securityTitle'),
+            description: t('securityDesc'),
+            image: '/othersolutions/security-bg.png',
+            showcaseImage: '/othersolutions/security-showcase.webp',
+            buttons: ['Surveillance', 'Access Control'],
+        },
+        {
+            id: 'solar-solutions',
+            title: t('solarSolutionsTitle'),
+            description: t('solarSolutionsDesc'),
+            image: '/othersolutions/solar-bg.png',
+            showcaseImage: '/othersolutions/solar-showcase.webp',
+            buttons: ['Photovoltaics', 'Energy Storage'],
+        },
+    ];
 
     // Check if mobile
     useEffect(() => {
@@ -82,7 +84,7 @@ export default function WhyChooseUs() {
                 setCurrentSlide(newSlide);
             }
         }
-    }, [currentSlide, isMobile]);
+    }, [currentSlide, isMobile, industries.length]);
 
     // Go to specific slide
     const goToSlide = (index: number) => {
@@ -101,7 +103,7 @@ export default function WhyChooseUs() {
             {/* Section Heading */}
             <AnimateOnScroll animation="fadeUp" delay={0}>
                 <div className={styles.sectionHeader}>
-                    <h2 className={styles.sectionTitle}>Our Solutions</h2>
+                    <h2 className={styles.sectionTitle}>{t('ourSolutions')}</h2>
                 </div>
             </AnimateOnScroll>
 
@@ -177,7 +179,7 @@ export default function WhyChooseUs() {
                                 <h3 className={styles.mobileSlideTitle}>{item.title}</h3>
                                 <p className={styles.mobileSlideDescription}>{item.description}</p>
                                 <a href={`/solutions/${item.id}`} className={styles.mobileSlideBtn}>
-                                    Learn More
+                                    {t('learnMore')}
                                 </a>
 
                                 {/* Dot Indicators inside slide */}

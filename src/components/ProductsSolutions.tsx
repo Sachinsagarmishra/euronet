@@ -89,7 +89,7 @@ const tabsData: TabData[] = [
 ];
 
 const ProductsSolutions = () => {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
     const [activeTab, setActiveTab] = useState('residential');
     const [currentIndex, setCurrentIndex] = useState(0);
     const carouselRef = useRef<HTMLDivElement>(null);
@@ -136,7 +136,7 @@ const ProductsSolutions = () => {
                 {/* Section Title */}
                 <AnimateOnScroll animation="fadeUp" delay={0}>
                     <h2 className={styles.sectionTitle}>
-                        {language === 'ar' ? 'حلولنا' : 'Our Solutions'}
+                        {t('ourSolutions')}
                     </h2>
                 </AnimateOnScroll>
 
@@ -179,7 +179,7 @@ const ProductsSolutions = () => {
                             {language === 'ar' ? activeTabData.descriptionAr : activeTabData.description}
                         </p>
                         <button className={styles.learnMoreBtn}>
-                            {language === 'ar' ? 'اعرف المزيد' : 'Learn More'}
+                            {t('learnMore')}
                         </button>
                     </div>
                 </div>
@@ -229,7 +229,7 @@ const ProductsSolutions = () => {
                                     <h4 className={styles.productName}>
                                         {language === 'ar' ? product.nameAr : product.name}
                                     </h4>
-                                    <p className={styles.productModel}>Model: {product.model}</p>
+                                    <p className={styles.productModel}>{t('model')}: {product.model}</p>
                                 </div>
                             ))}
                         </div>
@@ -253,7 +253,7 @@ const ProductsSolutions = () => {
                 {/* View All Button */}
                 <div className={styles.viewAllWrapper}>
                     <button className={styles.viewAllBtn}>
-                        {language === 'ar' ? 'عرض جميع المنتجات' : 'View All Products'}
+                        {t('viewAllProducts')}
                     </button>
                 </div>
             </div>
